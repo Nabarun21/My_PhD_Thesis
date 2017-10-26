@@ -1,2 +1,4 @@
-# My_PhD_Thesis
-Always store things on github, especially your thesis
+Always use git, especially for your thesis.
+
+
+Why are you here?
