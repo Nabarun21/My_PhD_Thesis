@@ -50,9 +50,25 @@ The injector chain that supplies protons to the LHC consists of four CERN accele
 
 It takes about 4 minutes and 20 seconds to fill up the each of the LHC rings wih protons, and about 20 minutes for the proton beam to reach its current peak energy 6.5 TeV. At this point, each LHC beam contains 2808 bunches each consisting of $1.5 \times 10^{11}$ protons, and colliding at a center of mass energy of 13 TeV. It is anticipated for the COM energy to increase to 14 TeV in 2018. Looking for physics beyond the standard model by colliding protons at such high energies is one of the primary aims of the LHC.
 
-Another important parameter for a collider like the LHC is the instantaneous luminosity, \mathscr{L}.
+Another important parameter for a collider like the LHC is the instantaneous luminosity (referred to as just luminosity in the following), $\mathscr{L}$. The number of events ($N$) generated per second for some processes is given by:
+
+\begin{equation}
+  \frac{dN}{dt}=\sigma\mathscr{L}
+\end{equation}
 
 
+where $\sigma$ is the cross-section of the processes. The luminosity of the LHC can be expressed in terms of only beam parameters as:
+
+\begin{equation}
+  L=\frac{N_{b}^2 n_{b} f_{rev} \gamma_{r}}{4 \pi \epsilon_{n}\beta^{*}} F
+\end{equation}
+
+where $N_{b}$ is number of protons in a bunch, $n_{b}$ is number of bunches per beam, $f_{rev}$ is the revolution frequency, $\gamma_{r}$ the relativistic gamma factor, $\epsilon_{n}$ the transverse beam emittance, $\beta^{*}$ the beta function at the collision point, and F is a reduction factior coming from the fact that the beams cross at an angle.
+
+
+This luminosity intergrated over time represents the total amount of per unit cross section and is called the integrated luminosity ($L$).The LHC has already reached its nominal design luminosity of $10^{34} cm^{-2} s^{-1}$, and it delivered data amounting to a more than $36 fb^{-1}$ in 2016. Figure $"~\ref{cms_data_collec}"$ shows the amount of data delivered by the LHC overalid with the subset collected by the CMS detector.    
+
+%write about LHC schedule
 
 
 So why do gnus do what they do?  This is a perennial question that has
