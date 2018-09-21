@@ -39,13 +39,13 @@ The Large Hadron Collider (LHC) is a powerful proton-proton synchrotron. It was 
 
 The injector chain that supplies protons to the LHC consists of four CERN accelerators that actually predate the LHC: Linac 2, PSB (Proton Synchroton Booster), PS (Proton Synchotron) and SPS (Super Proton Synchotron). This is illustrated in figure~\ref{fig:cern_acc_comp}. The proton source is simply a tank of hydrogen gas. The hydrogen atoms are ionized to yield protons which are then fed in to the Linac 2, a linear accelerator. This accelerates the protons to an energy of about 50 MeV which are then fed into a series of circular accelerators starting with the PSB which accelerates the protons to 1.4 GeV. The PS then accelerates them to 25 GeV, and they are then sent to the SPS which accelerates them to 450 GeV before being finally fed into the LHC beampipe. Inside the LHC the protons are accelerated by sixteen radiofrequency cavities which are made to oscillate at 400 MHz and the proton beam is sorted into discrete packet called 'bunches'. The beam is steered by 1232 Niobium-Titanium superconducting dipole magnets and collimated using quadrupole magnets. This magnet system is kept at a temperature below 2 K, using a pressurised bath of superfluid helium at about 0.13 MPa, and operates at fields above 8T. The LHC has three sophisticated vacuum systems: the insulation vacuum for cryomagnets, the insulation vacuum for  helium  distribution, and the beam vacuum.
 
-\begin{figure*}
-\begin{center}
-\includegraphics[width=0.8\textwidth,keepaspectratio]{plots_and_figures/cern_acc_complex.png}
-\caption{Cern Accelerator Complex}
-\label{fig:cern_acc_comp}
-\end{center}
-\end{figure*}
+%\begin{figure*}
+%\begin{center}
+%\includegraphics[width=0.8\textwidth,keepaspectratio]{plots_and_figures/cern_acc_complex.png}
+%\caption{Cern Accelerator Complex}
+%\label{fig:cern_acc_comp}
+%\end{center}
+%\end{figure*}
 
 
 It takes about 4 minutes and 20 seconds to fill up each of the LHC rings wih protons, and about 20 minutes for the proton beam to reach its current peak energy of 6.5 TeV. At this point, each LHC beam contains 2808 bunches with $1.5 \times 10^{11}$ protons per bunch, colliding at a center of mass energy (COM) of 13 TeV. It is anticipated for the COM energy to increase to 14 TeV in 2018. Looking for physics beyond the standard model by colliding protons at such high energies is one of the primary aims of the LHC.
@@ -102,9 +102,14 @@ The backbone of the CMS is a superconducting solenoid that houses its tracking a
 \end{figure*}
 
 
+
+
 \subsection{Coordinate Conventions}
 \label{cor_conv}
 The CMS detector has adopted a right-handed coordinate system, the origin of which lies at the nominal collision point inside the experiment.The x-axis points radially inward towards the center of the LHC while the y-axis points vertically upwards. This makes the z-axis point along the beam direction. At point 5 of LHC (a village named Cessy in France) where the CMS is, the z axis points toward the Jura Mountains. In cylindrical co-ordinates, the polar angle $\theta$ is measured from the z-axis while the azimuthal angle $\phi$ is measured from the x-axis in the x-y plane. The polar angle is used to define the pseudo-rapidity $\eta =-ln(tan(\frac{\theta}{2}))$ which is a close approximation for rapidity if $E\gg m$. The rapidity is a Lorentz invariant quantity under boosts in the z-direction. Since it is typical of particles that CMS sees to have $E\gg m$, the Lorentz invariance approximately holds for pseudo-rapidity as well. 
+
+\subsection{Charged Particle Tracking System}
+\label{tracker}
 
 So why do gnus do what they do?  This is a perennial question that has
 yet to be answered definitively by scientists.  Is their future
