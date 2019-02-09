@@ -1,30 +1,4 @@
-%
-% Modified by Megan Patnott
-% Last Change: Jan 18, 2013
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% Modified version of the sample_ndthesis.tex
-% by Sameer Vijay
-% Last Change: Wed Jul 27 2005 14:00 CEST
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% Sample Notre Dame Thesis/Dissertation
-% Using Donald Peterson's ndthesis classfile
-%
-% Written by Jeff Squyres and Don Peterson
-%
-% Provided by the Information Technology Committee of
-%   the Graduate Student Union
-%   http://www.gsu.nd.edu/
-%
-% Nothing in this document is serious except the format.  :-)
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% This is *not* a substitute for the documentation, which is included
-% as a pdf file in the standard distribution, and can be obatined from
-% the dtx file in the advanced distribution.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % You should *also* have a ND formatting guide to ensure that you have
@@ -80,6 +54,47 @@
 %           is identical to sort when used with textrefs)
 
 \begin{document}
+
+\newcommand{\PH}{\ensuremath{\text{H}}}
+\newcommand{\Ph}{\ensuremath{\text{h}}}
+\newcommand{\Pgm}{\ensuremath{\mu}}
+\newcommand{\Pe}{\ensuremath{\text{e}}}
+\newcommand{\Pgt}{\ensuremath{\tau}}
+\newcommand{\pt}{\ensuremath{\text{p}_\text{T}}}
+\newcommand{\PW}{\ensuremath{\text{W}}}
+\newcommand{\PZ}{\ensuremath{\text{Z}}}
+\newcommand{\ptvec}{\ensuremath{{\vec p}_{\mathrm{T}}}\xspace}
+\newcommand{\ptmiss}{\ensuremath{\pt^\text{miss}}\xspace}
+\newcommand{\ptvecmiss}{\ensuremath{{\vec p}_{\mathrm{T}}^{\kern1pt\text{miss}}}\xspace}
+\newcommand{\dphiemet}{\ensuremath{\Delta\phi(\Pe, \ptvecmiss)}}
+\newcommand{\dphiemu}{\ensuremath{\Delta\phi(\Pe, \Pgm)}}
+\newcommand{\Htetmu}{\ensuremath{\PH \to \Pgt_{\Pe} \Pgt_{\Pgm}}\xspace}
+\newcommand{\Hteth }{\ensuremath{\PH \to \Pgt_{\Pe} \Pgt_{\textrm{h}}}\xspace}
+\newcommand{\Hmt}{\ensuremath{\PH \to \Pgm \Pgt}\xspace}
+\newcommand{\met}{\ensuremath{\cancel{\it{E}}_{T}}\xspace}
+\newcommand{\msig}{\ensuremath{100\:\GeV< M_{collinear} < \: 150\:\GeV}\xspace}
+\newcommand{\tauh}{\ensuremath{\Pgt_{h}}\xspace}
+\newcommand{\Htt}{\ensuremath{\Ph \to \Pgt \Pgt}\xspace}
+\newcommand{\ztt}{\ensuremath{\PZ \to \Pgt \Pgt}\xspace}
+\newcommand{\Het}{\ensuremath{\Ph \to \Pe \Pgt}\xspace}
+\newcommand{\hmue}{\ensuremath{\Ph \to \Pgm \Pgt_{e}}\xspace}
+\newcommand{\Hmue}{\ensuremath{\PH \to \Pgm \Pgt_{e}}\xspace}
+\newcommand{\hmu}{\ensuremath{\Ph \to \Pgm \Pgt}\xspace}
+\newcommand{\Hmu}{\ensuremath{\PH \to \Pgm \Pgt}\xspace}
+\newcommand{\Hmuhad}{\ensuremath{\PH \to \Pgm \Pgt_{\text{h}}}\xspace}
+\newcommand{\hmuhad}{\ensuremath{\Ph \to \Pgm \Pgt_{\text{h}}}\xspace}
+\newcommand{\Hehad}{\ensuremath{\PH \to \Pe \Pgt_{\text{h}}}\xspace}
+\newcommand{\Hemu}{\ensuremath{\PH \to \Pe \Pgt_{\Pgm}}\xspace}
+\newcommand{\mue}{\ensuremath{\Pgm \Pgt_{\Pe}}\xspace}
+\newcommand{\emu}{\ensuremath{\Pe \Pgt_{\Pgm}}\xspace}
+\newcommand{\muhad}{\ensuremath{\Pgm \Pgt_{\text{h}}}\xspace}
+\newcommand{\ehad}{\ensuremath{\Pe \Pgt_{\text{h}}}\xspace}
+\newcommand{\mcol}{\ensuremath{M_{\text{col}}}\xspace}
+\newcommand{\mvis}{\ensuremath{M_{\text{vis}}}\xspace}
+\newcommand{\wjets}{\ensuremath{\PW+\text{jets}}\xspace}
+\newcommand{\zjets}{\ensuremath{\PZ+\text{jets}}\xspace}
+\newcommand{\aMCATNLO} {\textsc{MG5}\_a\MCATNLO\xspace}
+\newcommand{\ttb}{\ensuremath{t\overline{t}}\xspace}
 
 \frontmatter % All the items before the first chapter go in ``frontmatter''
 
@@ -137,6 +152,7 @@
   \sym{e}{elementary charge}
   \sym{E}{energy}  
 \end{symbols}
+
 
 \mainmatter
 % Place the text body here.
