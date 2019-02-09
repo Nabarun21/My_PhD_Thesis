@@ -4,9 +4,50 @@
 %
 
 \chapter{Object reconstruction and event generation}
+\label{chap:event_sim}
+
+
+\section{Introduction}
+\label{intro}
+
+\section{Physics Object Reconstruction}
+\label{p_ob_recon}
+
+\subsection{Particle Flow}
+\label{p_flow}
+\subsection{Track Reconstruction}
+\label{track_recon}
+\subsection{Electron Reconstruction}
+\label{e_recon}
+\subsection{Muon Reconstruction}
+\label{mu_recon}
+\subsection{Jet Reconstruction}
+\label{jet_recon}
+\subsection{MET, MT and Collinear Mass}
+\label{col_mass}
+\subsection{Tau Lepton and others}
+\label{tau_recon}
+\section{Datasets}
+\label{datasets}
+
+The data analysed in this search was gathered by the CMS detector in 2016 during proton-proton collisions at the LHC, corresponding to an integrated luminosity of $35.9 fb^{-1}$. This data corresponds to a center-of-mass energy of 13 TeV and a spacing of 25ns between bunch crossings in the LHC with an average of about 30 collisions per bunch crossing. The subset of samples used among all collected by CMS are the ones having at least one isolated muon having transverse energy over 24 GeV, as triggered by the CMS high level isolated muon trigger (HLT\_IsoMu24 in CMS parlance).
+
+\section{Monte Carlo Generation}
+\label{mc_gen}
+
+Monte Carlo simulated SM Higgs Boson events produced by  gluon fusion (GF)~\cite{Georgi_GF}, vector boson fusion (VBF)~\cite{Cahn:1986zv} and associated production (production in association with a W or Z boson)~\cite{Glashow:1978ab} mechanisms and decaying into a muon and a tau lepton are used as signal samples for the analysis.POWHEG~\cite{Nason:2004rx,Frixione:2007vw, Alioli:2010xd, Alioli:2010xa, Alioli:2008tz, Bagnaschi:2011tu} is used to produce these samples. It is also used to simulate t\bar{t} and single-top quark production processes. Several other event generators were used to simulate various other background processes for the analysis. MADGRAPH5.1~\cite{Alwall:2011uj} is used for Z+Jets, W+Jets and W$\gamma$ processes and also for diboson production. All the event generators are interfaced to PYTHIA 8.1~\cite{Sjostrand:pythia8} for the showering of partons and hadronization, as well as including a simulation of the underlying event (UE) and multiple interaction (MPI) based on the CUET8PM1 tune~\cite{Khachatryan:2015pea}. After the generation step, the detector response is simulated using a detailed description of the simulated detector based on the GEANT4~\cite{GEANT4} package.
+
+The protons circulate inside the LHC not as a continuous beam but in discrete closely packed bunches. This leads to more than one proton-proton collision per bunch crossing, i.e. pileup both in-time and out-of-time (see chapter~\ref{chap:exper_setup}). As mentioned in the chapter on event simulation (~\ref{chap:event_sim}), additional pileup interactions are also a part of the MC generation pipeline. All simulated samples are reweighted to the pileup distribution observed in data. An event weight is applied based on the number of simulated pileup events and the instantaneous luminosity per bunch-crossing, averaged over the run period.
+
+Several other scale factors (see chapter~\ref{chap:event_sim} for details) are used to reweight the events in order to get the MC simulation to match the data closely. These include scale factors based on trigger, lepton identification, lepton isolaton and b-jet tagging efficiencies.
 
 
 
+% % uncomment the following lines,
+% if using chapter-wise bibliography
+%
+% \bibliographystyle{ndnatbib}
+% \bibliography{example}
 
 % % uncomment the following lines,
 % if using chapter-wise bibliography
