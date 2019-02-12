@@ -2,7 +2,9 @@
 \label{evt_sel}
 \section{Introduction}
 \label{evt_sel_intro}
-This chapter describes in detail the event selection criteria for the analyses, and how they were chosen. It starts by introducing the backgrounds that each of selection criterion is trying to reduce in order to get a higher ratio of number of signal events to background events, leading to a better sensitivity for the search. This is followed by the procedure for arriving at the best possible set of cuts. Both analyses were performed blinded~\cite{blind_analysis} in the signal region. All selection criterion and methods described below were developed without the knowledge of the observed data in the range of variable spectra where the signal is expected to be present. This is considered an optimal way of eliminating the unintended biasing of a result in a particular direction and is a standard methodology in particle physics analyses.  
+This chapter describes in detail the event selection criteria for the analyses, and how they were chosen. It starts by introducing the backgrounds that each of selection criterion is trying to reduce in order to get a higher ratio of number of signal events to background events, leading to a better sensitivity for the search. This is followed by the procedure for arriving at the best possible set of selection criterion. For the \hmue, two methods of selection were developed. The first method developed involves placing requirements on several kinematic variables, and then using the resulting ditribution of \mcol as discriminant for a binned likelihood fit (see section ~\ref{ref_fit} for description of statistical procedures). We call this method \mcol fit method. The second method developed involves using a Boosted Decision Trees (BDT) discriminator  for classification of signal and background events. The output distribution of the BDT discriminator is then used to perform the fit. We call this method BDT method. The BDT method is found to have greater sensitivity, as discussed later in the chapter. However, the \mcol fit method is also presented as a cross-check analysis. For \Hmue analysis, only the \mcol fit method is developed. This is in part due to the dificulties foreseen in training a BDT with much fewer events available in \Hmue analysis, and in part since this is the very first time the \Hmue search is being performed, a simpler analysis was felt to be adequate.  
+
+Both analyses were performed blinded~\cite{blind_analysis} in the signal region. All selection criterion and methods described below were developed without the knowledge of the observed data in the range of variable spectra where the signal is expected to be present. This is considered an optimal way of eliminating the unintended biasing of a result in a particular direction and is a standard methodology in particle physics analyses.
 
 \section{H125 analysis signature and backgrounds}
 \label{h125_evt_selec}
@@ -26,7 +28,7 @@ The most dominant backgrounds consists of \ztt events coming from Drell-Yan prod
 
 \subsection{Baseline selection and categorization}
 \label{h125_evt_sel_bkg}
-A baseline selection is defined first in order to ensure that we have clean and well-defined events faithful to the final state signature of the signal process. A tightly isolated and identified $\Pgm$ is thus required to be present along with an tightly identified and isloated $\Pe$ of opposite sign charge. They are required to be separated by $\Delta R > 0.3$. The tight identification criterion applied for $\Pgm$ and $\Pe$ have been described in sections~\ref{mu_recon} and~\ref{e_recon}. Isolation criterion, as measured by $I_\text{rel}$ (described in ~\ref{tau_recon}), are required to have values $I_\text{rel}^{\Pe} < 0.15$ and $I_\text{rel}^{\Pgm} < 0.1$. The $\pt$ of these candidates are required to be above minimal thresholds required by trigger, identification and isolation requirement. Both candidates are also required to be within the fiducial region of the detector. The $\Pgm$ is required to have $\pt^{\Pgm} > 26$\GeV and $|\eta^{\Pgm}|<2.4$.The $\Pe$ is required to have $\pt^{\Pgm} > 26$\GeV and $|\eta^{\Pgm}|<2.3$. Events with at least one jet arising from a b-quark (b-tagged jets) are also vetoed. Cleaning events with b-tagged jets reduce some contribution backgrounds which give rise to b-quarks such has \ttb and single top. As described in~\ref{jet_recon}, any event with one or more jets having $\pt>30$\GeV and within $\Delta R < 0.3$ of either lepton candidate is also rejected. Further, an event is rejected if it has additional $\Pgm$ or $\Pe$, or $\Pgt_{had}$ candidates. All the above baseline selection requirements have been summarized in Table~\ref{tab:h125_base_sel}  .In addition, all the events were required to pass isolated muon triggers with a $\pt$ threshold of 24 \GeV. The trigger selection has been described in detail in section~\ref{trigger}. The distributions of the \mcol and several other  kinematic variables are shown in Fig.~\ref{fig:h125_presel}  
+A baseline selection is defined first in order to ensure that we have clean and well-defined events faithful to the final state signature of the signal process. A tightly isolated and identified $\Pgm$ is thus required to be present along with an tightly identified and isloated $\Pe$ of opposite sign charge. They are required to be separated by $\Delta R > 0.3$. The tight identification criterion applied for $\Pgm$ and $\Pe$ have been described in sections~\ref{mu_recon} and~\ref{e_recon}. Isolation criterion, as measured by $I_\text{rel}$ (described in ~\ref{tau_recon}), are required to have values $I_\text{rel}^{\Pe} < 0.15$ and $I_\text{rel}^{\Pgm} < 0.1$. The $\pt$ of these candidates are required to be above minimal thresholds required by trigger, identification and isolation requirement. Both candidates are also required to be within the fiducial region of the detector. The $\Pgm$ is required to have $\pt^{\Pgm} > 26$\GeV and $|\eta^{\Pgm}|<2.4$.The $\Pe$ is required to have $\pt^{\Pgm} > 26$\GeV and $|\eta^{\Pgm}|<2.3$. Only events with two or fewer jets are considered. All jets considered must have $\pt>30$\GeV, $|\eta| < 2.4 $ and satisfy the loose identification criterion described in section~\ref{jet_recon}. Events with one or more jets arising from a b-quark (b-tagged jets) are vetoed. Cleaning events with b-tagged jets reduce some contribution from backgrounds which give rise to b-quarks such has \ttb and single top. Also, as described in~\ref{jet_recon}, any event with one or more jets within $\Delta R < 0.4$ of either lepton candidate is also rejected. Further, an event is rejected if it has additional $\Pgm$ or $\Pe$, or any $\Pgt_{had}$ candidates. All the above baseline selection requirements have been summarized in Table~\ref{tab:h125_base_sel}. All the events were required to pass isolated muon triggers with a $\pt$ threshold of 24 \GeV. The trigger selection has been described in detail in section~\ref{trigger}. The distributions of the \mcol and several other kinematic variables after the baseline selection just described are shown in Figs.~\ref{fig:h125_presel1} and ~\ref{fig:h125_presel2}. These distributions act as the starting point for development of stricter kinematic selections looking at the different shapes signal and backgrounds for different variables.     
 
 
 \begin{table}[htpb]
@@ -51,23 +53,47 @@ A baseline selection is defined first in order to ensure that we have clean and 
 
 
 \begin{figure*}[!htpb]\centering
- \includegraphics[width=0.315\textwidth]{plots_and_figures/chapter5/preselection/Figure_002-a.pdf}
- \includegraphics[width=0.315\textwidth]{plots_and_figures/chapter5/preselection/Figure_002-b.pdf} \\
- \includegraphics[width=0.315\textwidth]{plots_and_figures/chapter5/preselection/Figure_002-c.pdf}
- \includegraphics[width=0.315\textwidth]{plots_and_figures/chapter5/preselection/Figure_002-d.pdf}  \\
- \includegraphics[width=0.315\textwidth]{plots_and_figures/chapter5/preselection/Figure_002-e.pdf}
- \includegraphics[width=0.315\textwidth]{plots_and_figures/chapter5/preselection/Figure_002-f.pdf} \\
- \includegraphics[width=0.315\textwidth]{plots_and_figures/chapter5/preselection/Figure_002-g.pdf}
- \includegraphics[width=0.315\textwidth]{plots_and_figures/chapter5/preselection/Figure_002-h.pdf}
-\caption{Distributions of kinematic variables after baseline selction for \hmue analysis.}
- \label{fig:h125_presel}
+ \includegraphics[width=0.49\textwidth]{plots_and_figures/chapter5/preselection/Figure_002-a.pdf}
+ \includegraphics[width=0.49\textwidth]{plots_and_figures/chapter5/preselection/Figure_002-b.pdf} \\
+ \includegraphics[width=0.49\textwidth]{plots_and_figures/chapter5/preselection/Figure_002-c.pdf}
+ \includegraphics[width=0.49\textwidth]{plots_and_figures/chapter5/preselection/Figure_002-d.pdf} 
+\caption{Distributions of kinematic variables after baseline selction for \hmue analysis (1).}
+ \label{fig:h125_presel1}
+\end{figure*}
+\begin{figure*}[!htpb]\centering
+ \includegraphics[width=0.49\textwidth]{plots_and_figures/chapter5/preselection/Figure_002-e.pdf}
+ \includegraphics[width=0.49\textwidth]{plots_and_figures/chapter5/preselection/Figure_002-f.pdf} \\
+ \includegraphics[width=0.49\textwidth]{plots_and_figures/chapter5/preselection/Figure_002-g.pdf}
+ \includegraphics[width=0.49\textwidth]{plots_and_figures/chapter5/preselection/Figure_002-h.pdf}
+\caption{Distributions of kinematic variables after baseline selction for \hmue analysis (2).}
+ \label{fig:h125_presel2}
 \end{figure*}
 
+At this point the events are divided into several buckets, called categories. This is done on the basis of number of jets present in the event. In events with 2 jets the invariant mass of the di-jet system($M_{jj}$) is also used for categorization. The topology of events containing different number of such jets can be different. For example, in events with one energetic jet the h produced can be boosted resulting in the azimuthal separation of the $\Pgm$ and $\Pe$ (that come from its decay) to be narrower than events with no jets. Each of this categories enchance the contribution of different h boson production mechanisms, and requiring different optimal selection criteria in each category  helps increase the sensitivity of the search. The categories in order of decreasing number of signal events are:
+\begin{itemize}
+\item[{\bf 0-jet category:}] These are events that do not have any jet. This category enhances the gluon-gluon fusion (GGF)) contribution.
+\item[{\bf 1-jet category:}] Events that have 1 jet are put in this category. This category enhances the GGF production with initial state radiation (ISR). Some VBF events where one jet has escaped detection can also enter this category.
+\item[{\bf 2-jet GGF category:}] This category contains events that have 2 jets with the additional requirement that $M_{jj}<550$\GeV. The dominant contribution comes from GGF production in association with two jets.
+\item[{\bf 2-jet VBF category:}] This category contains events that have 2 jets with the additional requirement that $M_{jj}\geq 550$\GeV. The dominant contribution comes from VBF production which is characterized by presence of two jets with high dijet mass.  
+\end{itemize}
 
-
-
-\subsection{Cut Based Selection}
+\subsection{\mcol fit selection}
 \label{h125_cb_sel}
+In the \mcol fit method, the selection is performed by placing kinematic cuts on several variables to enhance the signal-to-background ratio. There are several variables considered for this and they include the azimuthal separation ($\Delta\phi$) between $\Pgm$ and $\Pe$: \dphiemu, between $\Pe$ and \ptvecmiss: \dphiemet, between $\Pgm$ and \ptvecmiss: \dphimumet, and the transverse mass between $\Pgm$ and \ptvecmiss: $M_T(\Pgm)$, between $\Pe$ and \ptvecmiss: $M_T(\Pe)$. The \hmue decay being a 2-body decay, the $\Pgm$ and $\Pe$ are expected to be well separated in the azimuthal plane.Therefore, selecting events with a \dphiemu larger than a threshold can help reject background events while keeping the signal that is peaked at high \dphiemu values. This can be seen from Fig~\ref{h125_presel2} (bottom right). Both neutrinos in the signal process come from the decay of the same $\Pgt$. These neutrinos form the \ptvecmiss. As mentioned earlier, the $\Pgt$ being much lighter than the h, it is highly boosted and its decay products i.e. $\Pe$ and the \ptvecmiss are expected to be close to each other in the azimuthal direction. Thus \dphiemet is expected to peak at values close to zero for signal events, as seen in Fig~\ref{h125_presel2} (bottom left). All backgrounds have relatively flat shape throughout the $\Delta\phi$ range. Consequently, requiring \dphiemet to be lower than a threshold works as a powerful rejection criterion against most backgrounds. Following, a similar line of reason,the $\Pgm$ is expected to be well separated from the \ptvecmiss resulting in \dphimumet for signal events to peak at high values, as seen in Fig~\ref{h125_presel2} (top right). Further, as the $M_T(\ell)$ (defined in section ~\ref{col_mass}) contains negative of the cosine of $\Delta\phi(\ell, \ptvecmiss)$ term, it is expected to be peak at values similar to $\Delta\phi(\ell, \ptvecmiss)$. This can be seen from Fig ~\ref{h125_presel2} (top left) and Fig	~\ref{h125_presel2} (bottom right) which show signal events for $M_T(\Pgm)$ and $M_T(\Pe)$ peak at relatively higher and lower values than most backgrounds respectively. In particular, requiring $M_T(\Pgm)$ to be larger than threshold can help reject a lot of \ztt events which is the most dominant background in the 0-jet category.                  
+
+The selection requirements on the \pt of the $\Pgm$ and $\Pe$ have not been made stricter to avoid biasing the selection toward energetic leptons that sculpt the background Mcol distribution to mimic the signal peak. This effect could potentially reduce the shape discrimination power of the signal extraction procedure. Only in the 0-jet category category the requirement on \pt of the $\Pgm$ is made marginally stricter by requiring  $\pt^{\Pgm} > 30$\GeV. All other lepton \pt requirements are allowed to remain the same as baseline selection and are not included in the optimization procedure.   
+
+
+
+
+
+
+
+
+
+
+
+
 
 \subsection{BDT Based Selection}
 \label{h125_bdt_Sel}
