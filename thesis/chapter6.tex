@@ -4,7 +4,7 @@
 \section{Introduction}
 This chapter describes the techniques used for estimation of the backgrounds in the analyses. Each background is estimated individually. For large backgrounds, the estimation is validated using regions enriched in those backgrounds.
 
-\section{\hmue backgrounds}
+\section{h125: \hmue backgrounds}
 \label{h125_bg_val}
 
 \subsection{\ztt}
@@ -28,7 +28,7 @@ To validate this estimation, we look at agreement between observed data and simu
 
 \subsection{\ttb}
 \label{h125_ttb}
-Tops decay into $\PW$ bosons and a b-quark more than 90\% of the time. The $\PW$ boson can decay leptonically into a $\Pgm$ and $\Pe$ making it a background for the analysis. The b-tagging veto applied at the baseline selection level is able to somewhat supress this background. However it still forms a large fraction of the background for the anlysis. In fact, it is the largest background in both 2-jet categories. It is also large in the 1-jet category. We estimate the \ttb background using simulation. The background estimation is validated in two separate control regions enriched in \ttb. The first control region is formed requiring the baseline selection but with a inverted b-tagging veto. In other words, at least 1 b-tagged jet is required to be present in the event. The distributions of BDT response (top) and \mcol (bottom) in this region are shown in Fig.~\ref{fig:tt_cr} for categories where the \ttb background is large. The second control region is constructed using kinematic selection criteria. In particular, in addition to the baseline selection criteria with the b-tag veto removed, we require $M_T(\Pe)$ (see Fig.~\ref{fig:h125_presel2} top left) to be greater than 50\GeV. The distributions of BDT response (top) and \mcol (bottom) in this second control region are shown in Fig.~\ref{fig:tt_cr_cutbased}. Given that the uncertainty bands in these control region plots only contain uncertainties on normalization (and not shape-based uncertainties, as discussed in section~\ref{sig_ext}, and included in the max likelihood fit used to extract results), the data over background estimation  ratio is reasonable in these regions. Further,a normalization uncertainty of 10\% is applied on the \ttb estimation in the signal region based on these control regions.
+Tops decay into $\PW$ bosons and a b-quark more than 90\% of the time. The $\PW$ boson can decay leptonically into a $\Pgm$ and $\Pe$ making it a background for the analysis. The b-tagging veto applied at the baseline selection level is able to somewhat supress this background. However it still forms a large fraction of the background for the anlysis. In fact, it is the largest background in both 2-jet categories. It is also large in the 1-jet category. We estimate the \ttb background using simulation. The background estimation is validated in two separate control regions enriched in \ttb. The first control region is formed requiring the baseline selection but with a inverted b-tagging veto. In other words, at least 1 b-tagged jet is required to be present in the event. The distributions of BDT response (top) and \mcol (bottom) in this region are shown in Fig.~\ref{fig:tt_cr} for categories where the \ttb background is large. The second control region is constructed using kinematic selection criteria. In particular, in addition to the baseline selection criteria with the b-tag veto removed, we require $M_T(\Pe)$ (see Fig.~\ref{fig:h125_presel2} top left) to be greater than 50\GeV. The distributions of BDT response (top) and \mcol (bottom) in this second control region are shown in Fig.~\ref{fig:tt_cr_cutbased}. Given that the uncertainty bands in these control region plots only contain uncertainties on normalization (and not shape-based uncertainties, as discussed in section~\ref{sig_ext}, and included in the max likelihood fit used to extract results), the data over background estimation  ratio is reasonable in these regions. Further, a normalization uncertainty of 10\% is applied on the \ttb estimation in the signal region based on these control regions.
 
 
 \begin{figure}[!htpb]\centering
@@ -58,9 +58,10 @@ Tops decay into $\PW$ bosons and a b-quark more than 90\% of the time. The $\PW$
 \end{figure}
 
 \subsection{Misidentified lepton background}
+\label{h125_misid_bg}
 Another source of background which is relatively much smaller than \ttb or \ztt arises from jets misidentified as leptons in \wjets or SM events comprised uniquely of jets produced through the strong interaction, referred to as quantum chromodynamics (QCD) multijet events. In \wjets events one lepton candidate is a real lepton from the $\PW$ boson decay while the other lepton is a misidentified jet. In QCD events, both leptons in the final state are misidentified jets. The baseline selection criteria requires the leptons to be well identified and isolated. This makes it difficult for a jet to masquerade as a lepton. In case of the $\Pgm$ this even more so since it is required to satisfy high $\pt$ thresholds as well. Consequently, these events form a small part of the background. This is in contrast to a final state where the non-prompt lepton is a hadronically decaying $\Pgt$ instead of an electronically decaying one. This background would be much larger in such a case.
 
-The W + jets background contribution to the misidentified-lepton background is estimated using simulation. The QCD multijet contribution is estimated from collision data events where the leptons have like-signcharge. The expected yield from non-QCD processes in this region is subtracted using simulation. The resulting sample is then rescaled to account for the differences between the composition in the like- and opposite-sign charge regions. The scaling factors are extracted from samples enriched  QCD multijet events, and the procedure is illustrated in Ref.~\cite{}. This background is validated in a control region that is obtained by requiring the baseline selection but inverting the isolation criteria. In other words events with well-isolated $\Pgm$ and $\Pe$ are rejected. The particular isolation thresholds required for this region are:$1>I_\text{rel}^{\Pe} > 0.1$ or $0.25>I_\text{rel}^{\Pgm} > 0.15$. The distributions of BDT response and \mcol in this qcd enriched region are shown in Fig.~\ref{fig:qcd_cr}. The plots show good agreement between data and background.
+The W + jets background contribution to the misidentified-lepton background is estimated using simulation. The QCD multijet contribution is estimated from collision data events where the leptons have like-signcharge. The expected yield from non-QCD processes in this region is subtracted using simulation. The resulting sample is then rescaled to account for the differences between the composition in the like- and opposite-sign charge regions. The scaling factors are extracted from samples enriched  QCD multijet events, and the procedure is illustrated in Ref.~\cite{}. This background is validated in a control region that is obtained by requiring the baseline selection but inverting the isolation criteria. In other words events with well-isolated $\Pgm$ and $\Pe$ are rejected. The particular isolation thresholds required for this region are:$0.1 < I_\text{rel}^{\Pe} < 1$ or $0.15 < I_\text{rel}^{\Pgm} < 0.25$. The distributions of BDT response and \mcol in this qcd enriched region are shown in Fig.~\ref{fig:qcd_cr}. The plots show good agreement between data and background.
 
 
 
@@ -75,10 +76,40 @@ The W + jets background contribution to the misidentified-lepton background is e
 \end{figure*}
 
 \subsection{Other backgrounds}
-The other backgrounds in the analysis make relatively much smaller contrbutions. Electroweak diboson production ($\PW\PW$, $\PW\PZ$ and $\PZ\PZ$) contributes a similar number of events as the misidentified lepton background. $\PW\PW$ events make the largest contribution, followed by $\PW\PZ$ and $\PZ\PZ$ events as the latter ones have additional leptons in their final state. SM decays of the h boson forms a small but non-negligible background. These come from $\text{h} \to \Pgt\Pgt$  and $\text{h} \to \PW\PW$ decays.
+\label{h125_other_bg}
+The other backgrounds in the analysis make relatively much smaller contrbutions. Electroweak diboson production ($\PW\PW$, $\PW\PZ$ and $\PZ\PZ$) contributes a similar number of events as the misidentified lepton background, and is estimated ferom simulation. $\PW\PW$ events make the largest contribution, followed by $\PW\PZ$ and $\PZ\PZ$ events. This is because $\PW\PZ$ and $\PZ\PZ$ events  have additional leptons in their final state which have to miss detection in order for the event to be a background. SM decays of the h boson also forms a small but non-negligible background. These come particularly from $\text{h} \to \Pgt\Pgt$  and $\text{h} \to \PW\PW$ decays. Other backgrounds include $Z\to\ell\ell$ $(\ell = \Pe, \Pgm)+\text{jets}$, single-top quark production and $\PW\gamma^{(*)}+\text{jets}$. All of these are estimated using simulation.  
 
-\section{Heavy Higgs Analysis}
-\label{hh_bg_val}
+\section{Heavy Higgs: \Hmue backgrounds }
+\label{H_bg_val}
+The background processes in the \Hmue analysis are  similar  to \hmue but differ in relative contribution, and are overall much smaller. This is due to the fact the \HMue analyses searhes for LFV decay in a higher mass, higher \pt region. In particular, \ztt background which is the most dominant in \hmue is now very small. The \ztt background peaks around the $\PZ$ boson mass, and the  high $\pt$ cuts in this anlysis reject most of these events. The dominant backgrounds in \Hmue are \ttb production, followed by electroweak diboson production which have a relatively flatter $\pt$ distribution and survive the strict $\pt$ requirements.
+
+\ttb production is the largest background in the \Hmue analysis. We estimate this background using simulation. A control region enriched in \ttb events is constructed by requiring the baseline selection with the b-tag veto removed, and with the additional requirement that at least 1 b-tagged jet be present. Fig.~{\ref{fig:tt_cr_nosf} (left) shows the \mcol distribution of this sample. To take into account the residual data to background estimation difference, an overall normalization scale factor of 0.886 is extracted from this region, and is applied to the background estimation in the signal region. The same control region above is shown in Fig.~{\ref{fig:tt_cr_nosf} (right), after the background has been scaled by the above factor for illustration. Distributions of several other kinematic variables (after the above rescaling) in the \ttb control region are shown in Fig.~\ref{fig:tt_cr}. They show reasonable agreement between data and estimated background.
+
+\begin{figure*}[htpb]
+  \begin{center}
+
+    \includegraphics[width=0.48\textwidth]{plots_and_figures/chapter6/tt_cr_hm/ttbarNoSF.pdf}
+    \includegraphics[width=0.48\textwidth]{plots_and_figures/chapter6/tt_cr_hm/ttbarSF.pdf}
+  \end{center}
+  \caption{\mcol distribution in \ttb enriched control region as defined in the text before the application of the scale factor (left) and after (right),for the \Hmue analysis.}
+  \label{fig:tt_cr_nosf}
+\end{figure*}
+
+\begin{figure*}[htbp]
+     \centering
+      \includegraphics[width=0.48\textwidth]{plots_and_figures/chapter6/tt_cr_hm/log_mutaue_1jet_presel_mPt.pdf}
+      \includegraphics[width=0.48\textwidth]{plots_and_figures/chapter6/tt_cr_hm/mutaue_1jet_presel_dphiemu.pdf}\\
+      \includegraphics[width=0.48\textwidth]{plots_and_figures/chapter6/tt_cr_hm/mutaue_1jet_presel_dphiEMet.pdf}
+      \includegraphics[width=0.48\textwidth]{plots_and_figures/chapter6/tt_cr_hm/mutaue_1jet_presel_dphiMuMet.pdf}\\
+     \caption{Distributions of several kinematic variables in the \ttb enriched control region for \Hmue analysis.}
+     \label{fig:tt_cr}
+\end{figure*}
+
+Electroweak diboson production ($\PW\PW$, $\PW\PZ$ and $\PZ\PZ$) forms the next largest background in \Hmue analysis. It is estimated using simulation. All other backgrounds are much smaller. This can be seen from the distributions of kinematic variables after baseline selection, as can be seen from Figs.~\ref{fig:Hmutaue_presel1} and ~\ref{fig:Hmutaue_presel2}. The misidentified lepton background is even smaller here than \hmue. The higher $\pt$ requirement makes it even less likely for jets to be able to be misidentified as leptons. This background is estimated using the same technique as \hmue, as described in section~\ref{h125_misid_bg}. The $Z\to\ell\ell$ $(\ell = \Pe, \Pgm)+\text{jets}$ and \ztt backgrounds are estimated from simulation. Other backgrounds include SM h boson decays, $\text{h} \to \PW\PW$, $\text{h} \to \Pgt\Pgt$, single-top quark production and $\PW\gamma^{(*)}+\text{jets}$, and are estimated using simulation. 
+
+ 
+    
+
 
 
 
