@@ -5,10 +5,44 @@
 
 \chapter{Signal extraction and systematic uncertainties}
 \label{sig_ext}
+\section{Introduction}
+The analysis is in essence a sophisticated counting experiment. The presence of a signal is indicated by an excess of events over the predicted background. Given that there are several uncertainties, both experimental and theoretical and also due to the innate randomness in the process, it is possible that an excess is observed when there is no signal. So, when an excess is observed, a p-value which represents the probability that the excess is due to statistical fluctuations is computed. A very low p-value is taken to indicate that the excess corresponds to an observed signal and not merely a statistical fluctuation. Conversely, if no excess is observed (upper exclusion) limits are set on the branching fraction. A 95\% CL (confidence level) is taken as a requirement for ruling out a signal at or above a certain value known i.e. upper exclusion limit. The first part of this chapter describes the statistical methods used, that very closely follow the procedure used for LHC Higgs boson search and described in ~\cite{note2011}.
+
+Several sources of systematic uncertainties need to be considered when making the above measurement. The sources of these uncertainties can be theoretical, experimental or purely statistical in nature. Further, they can effect only the overall scale of the distributions (used to make the measurement), or effect there shape i.e. change the scale differently in each bin of the distribution. All the uncertainties used in the analyses and their sources are described in the secon part of this chapter.      
 
 
-\section{H125 Analysis}
-\label{h125_sys}
+
+\section{Statistical methods for signal extraction}
+In the following section, the expected signal event yields are denoted by $s$, and backgrounds by $b$. The parameter $\mu$ that appears is the signal strength modifier, which changes the signal production cross-sections of all the production mechansims by exactly the same scale $\mu$.
+\label{stat_meth}
+\subsection{Likelihood function}
+The Poisson distribution is an appropriate model for n, the number of times an event occurs in an interval if the following assumptions are true~\cite{poisson_wiki}.
+\begin{itemize}
+\item The occurrence of one event does not affect the probability that a second event will occur. That is, events occur independently.
+\item The rate at which events occur is constant. The rate cannot be higher in some intervals and lower in other intervals. This rate is the average number of events in the interval. $\lambda$.
+\item Two events cannot occur at exactly the same instant; instead, at each very small sub-interval exactly one event either occurs or does not occur.
+\end{itemize}
+The poisson probablity of distribution is then given by:
+\begin{equation*}
+  P(n_events)=\frac{e^{-\lambda}\lambda^{n}}{n!}
+\end{equation*}
+For a counting experiments such as ours, the above conditions approximately hold. The expected number of events is $\mu\cdot s + b$. The likelihood function $\mathcal{L}(data|\mu)$ is then given by:
+\begin{equation*}
+  \mathcal{L}(data|\mu)=\prod_{i=1}^{bins}\frac{(\mu\cdot s_i + b_i)^{n_i}}{n_{i}!}e^{-\mu\cdot s_i - b_i}
+\end{equation*}
+,where $n_i$ is the number of events observed in the bin i of the distribution, and $s_i$ and $b_i$ are expected number of signal and background events in that bin respectively.
+
+
+\subsection{Treatment of systematic uncertainties}
+All systematic uncertainties are handled by introducing them as nuisance parameters. Nuisance parameters are parameters that influence the model but are not of interest in our measurement, e.g., if we are interested in knowing only the mean of a population that is expected to be distributed as a gaussian, the standard deviation becomes a nuisance parameter for the model that we fit. In our experiment, the nuisance parameters are embedded into the likelihood function. In order for the likelihood function to have a clean factorised form ~\cite{note2011}, all sources of uncertainties considered are considered 100\%-corrrelated or uncorrelated. If an uncertainty is partially correlated, it is either separated into 100\%-corrrelated or uncorrelated components, or considered 100\%-corrrelated or uncorrelated, depending on whichever is a more conservative estimate. The full suite of nuisance parameters is represented as $\theta$. These effect the expected signal and backgeound yields which are now represented as $s(\theta)$ and $b(\theta)$. Each component of $\theta$ is associated with a default value $\tilde{\theta}$, reflecting our degree of belief on the real value of $\theta$. The pdf (probablity distribution function) $\rho(\theta|\tilde{\theta})$ can then be interpreted as a posterior distribution from measurements of $\tilde{\theta}$. Using Bayes' theorem:
+\begin{equation*}
+  \rho(\theta|\tilde{\theta})=\rho(\tilde{\theta}|\theta)\cdot\pi_\theta(\theta),
+\end{equation*}
+where the priors $\pi_\theta(\theta)$ are taken as flat distributions representing no prior knowledge of $\theta$. This reformulation allows us to use the pdf of $\tilde{\theta}$ instead, i.e. $\rho(\tilde{\theta}|\theta)$  to directly constrain the likelihood of the measurement. The likelihood function after the introduction of systematic uncertainties now becomes:
+\begin{equation*}                                                                                                                               \mathcal{L}(data|\mu,\theta)=Poisson(data|\mu\cdot s(\theta) + b(\theta))\cdot\rho(\tilde{\theta}|\theta)
+\end{equation*}
+
+
 
 \subsection{Theoretical uncertainties}
 \label{theo_uncert}
