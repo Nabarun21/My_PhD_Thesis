@@ -6,7 +6,7 @@
 \chapter{Signal extraction and systematic uncertainties}
 \label{sig_ext}
 \section{Introduction}
-The analysis is in essence a sophisticated counting experiment. The presence of a signal is indicated by an excess of events over the predicted background. Given that there are several uncertainties, both experimental and theoretical and also due to the innate randomness in the process, it is possible that an excess is observed when there is no signal. So, when an excess is observed, a p-value which represents the probability that the excess is due to statistical fluctuations is computed. A very low p-value is taken to indicate that the excess corresponds to an observed signal and not merely a statistical fluctuation. Conversely, if no excess is observed (upper exclusion) limits are set on the branching fraction. A 95\% CL (confidence level) is taken as a requirement for ruling out a signal at or above a certain value known i.e. upper exclusion limit. The first part of this chapter describes the statistical methods used, that very closely follow the procedure used for LHC Higgs boson search and described in ~\cite{note2011}.
+The analysis is in essence a sophisticated counting experiment. The presence of a signal is indicated by an excess of events over the predicted background, in the distribution of a signal variable. For our analyses the signal variables are collinear mass or BDT output, as described in Sections~\ref{evt_sel} and ~\ref{chap:event_sim}. Given that there are several uncertainties, both experimental and theoretical and also due to the innate randomness in the process, it is possible that an excess is observed when there is no signal. So, when an excess is observed, a p-value which represents the probability that the excess is due to statistical fluctuations is computed. A very low p-value is taken to indicate that the excess corresponds to an observed signal and not merely a statistical fluctuation. Conversely, if no excess is observed (upper exclusion) limits are set on the product of branching fraction and production cross-section. A 95\% CL (confidence level) is taken as a requirement for ruling out a signal at or above a certain value known i.e. upper exclusion limit. The first part of this chapter describes the statistical methods used, that very closely follow the procedure used for LHC Higgs boson search and described in ~\cite{note2011}.
 
 Several sources of systematic uncertainties need to be considered when making the above measurement. The sources of these uncertainties can be theoretical, experimental or purely statistical in nature. Further, they can effect only the overall scale of the distributions (used to make the measurement), or effect there shape i.e. change the scale differently in each bin of the distribution. All the uncertainties used in the analyses and their sources are described in the secon part of this chapter.      
 
@@ -23,29 +23,99 @@ The Poisson distribution is an appropriate model for n, the number of times an e
 \item Two events cannot occur at exactly the same instant; instead, at each very small sub-interval exactly one event either occurs or does not occur.
 \end{itemize}
 The poisson probablity of distribution is then given by:
-\begin{equation*}
+\begin{equation}
   P(n_events)=\frac{e^{-\lambda}\lambda^{n}}{n!}
-\end{equation*}
+\end{equation}
 For a counting experiments such as ours, the above conditions approximately hold. The expected number of events is $\mu\cdot s + b$. The likelihood function $\mathcal{L}(data|\mu)$ is then given by:
-\begin{equation*}
+\begin{equation}
   \mathcal{L}(data|\mu)=\prod_{i=1}^{bins}\frac{(\mu\cdot s_i + b_i)^{n_i}}{n_{i}!}e^{-\mu\cdot s_i - b_i}
-\end{equation*}
+\end{equation}
 ,where $n_i$ is the number of events observed in the bin i of the distribution, and $s_i$ and $b_i$ are expected number of signal and background events in that bin respectively.
 
 
 \subsection{Treatment of systematic uncertainties}
+\label{sys_treat}
 All systematic uncertainties are handled by introducing them as nuisance parameters. Nuisance parameters are parameters that influence the model but are not of interest in our measurement, e.g., if we are interested in knowing only the mean of a population that is expected to be distributed as a gaussian, the standard deviation becomes a nuisance parameter for the model that we fit. In our experiment, the nuisance parameters are embedded into the likelihood function. In order for the likelihood function to have a clean factorised form ~\cite{note2011}, all sources of uncertainties considered are considered 100\%-corrrelated or uncorrelated. If an uncertainty is partially correlated, it is either separated into 100\%-corrrelated or uncorrelated components, or considered 100\%-corrrelated or uncorrelated, depending on whichever is a more conservative estimate. The full suite of nuisance parameters is represented as $\theta$. These effect the expected signal and backgeound yields which are now represented as $s(\theta)$ and $b(\theta)$. Each component of $\theta$ is associated with a default value $\tilde{\theta}$, reflecting our degree of belief on the real value of $\theta$. The pdf (probablity distribution function) $\rho(\theta|\tilde{\theta})$ can then be interpreted as a posterior distribution from measurements of $\tilde{\theta}$. Using Bayes' theorem:
-\begin{equation*}
+\begin{equation}
   \rho(\theta|\tilde{\theta})=\rho(\tilde{\theta}|\theta)\cdot\pi_\theta(\theta),
-\end{equation*}
+\end{equation}
 where the priors $\pi_\theta(\theta)$ are taken as flat distributions representing no prior knowledge of $\theta$. This reformulation allows us to use the pdf of $\tilde{\theta}$ instead, i.e. $\rho(\tilde{\theta}|\theta)$  to directly constrain the likelihood of the measurement. The likelihood function after the introduction of systematic uncertainties now becomes:
-\begin{equation*}                                                                                                                               \mathcal{L}(data|\mu,\theta)=Poisson(data|\mu\cdot s(\theta) + b(\theta))\cdot\rho(\tilde{\theta}|\theta)
-\end{equation*}
+\begin{equation}
+  \mathcal{L}(data|\mu,\theta)=Poisson(data|\mu\cdot s(\theta) + b(\theta))\cdot\rho(\tilde{\theta}|\theta)
+\end{equation}
+
+Systematic unceraintites that effect only the overall scale of the distributions, correspond to a mutliplicative factor in the signal and/or background yields, and are described by log-normal pdfs. Log-normal pdfs are characterised by the width $\kappa$, and are well-suited for positively valued observables. The log-normal distribution looks like:
+\begin{equation}
+\rho(\theta|\tilde{\theta})=\frac{1}{\sqrt{2\pi}\text{ ln}(\kappa)}\text{exp }(\frac{\text{ln}(\theta/\tilde{\theta})^2}{2(\text{ln }\kappa)^2}) \frac{1}{\theta}  
+\end{equation}
+
+Systematic uncertainties that effect the scale of the distribution differently in each been have the effect of altering its shape along with its scale. Such uncertainties are called shape uncertainties ~\cite{shape_syst1}, and are modeled using a linear extrapolation method ~\cite{shape_syst2}. In practice, two alternate distributions obtained by varying the nuisance by $\pm 1$ standard deviation are used, and a parameter is added to the likelihood that smoothly interpolates between these shapes.
+
+\subsection{Calculation of exclusion limits}
+\label{exc_cal}
+The CL$_\text{s}$ method~\cite{cls1,cls2,cls3} is used to set upper exclusion limits when no excess of data over background is observed. The test statistic used generally for hypothesis testing in searches at the LHC, uses profiling of nuisances as described above, and is based on the likelihood ratio~\cite{prof_likelihood}, which by the Neyman-Pearson lemma is known as the most powerful discriminator. This is denoted by $\tilde{q_\mu}$, and is given by:
+\begin{equation}
+\label{eq:proflik}
+  \tilde{q_\mu}=-2\text{ ln}\frac{\mathcal{L}(\text{data}|\mu,\hat{\theta_\mu})}{\mathcal{L}(\text{data}|\hat{\mu},\hat{\theta})},\text{   with  } 0\leq \mu \leq \hat{\mu} 
+\end{equation}
+
+,where $\hat{\theta_\mu}$ refers to the conditional maximum likelihood estimators of $\theta$, i.e. the set of nuisances parameters that maximize the likelihood for a given signal strength $\mu$, while $\hat\mu$ and $\hat\theta$ refer to the global maximum likelihood estimators for $\mu$ and $\theta$. The lower constraint on $\hat{\mu}$ i.e., $\hat{\mu}\geq 0$ ensures that the signal rate cannot be negative, while the upper constraint that $\hat{\mu}$, which is the global maximum value, cannot be less than the value of $\mu$ under consideration is imposed to guarantee that upward fluctuations of data such that $\hat{\mu}\geq \mu$ are not considered as evidence against the signal hypothesis,i.e., a signal of strength $\mu$.
+
+Now, using equation~\ref{eq:proflik}, the observed value of the test statistic,$\tilde{q_\mu}^{obs}$, is calculated for the signal strength $\mu$. Also, maximum likelihood estimators for the nuisance parameters, for the background-only($\mu=0$) and signal-plus-background(current $\mu>0$ under consideration) hypotheses are calculated. They are denoted by $\hat{\theta_{0}}^{obs}$ and $\hat{\theta_\mu}^{obs}$ respectively, and are used to generate toy Monte carlo pseudo-datasets. These pseudo datasets are used to construct  pdfs, using equation~\ref{eq:proflik}, of test statistics $f(\tilde{q_\mu}|0,\hat{\theta_{0}}^{obs})$ and $f(\tilde{q_\mu}|\mu,\hat{\theta_\mu}^{obs})$ by treating them as they were real data. Example of these distributions are shown in Fig.~\ref{fig:test_stat_dist}.
+\begin{figure*}[!htpb]\centering
+ \includegraphics[width=0.70\textwidth]{plots_and_figures/chapter7/test_statistic_distri.png}
+ \caption{Test statistic distributions for ensembles of pseudo-data generated for signal-plus-background (red) and background-only (blue) hypotheses.~\cite{note2011}}
+ \label{fig:test_stat_dist}
+\end{figure*}
 
 
+Having constructed the above pdfs, it is now possible to calculate the probabilities of the observations under both hypotheses. The first quantity that we calculate is:
+\begin{equation}                                                                                                                                                                                                 \label{eq:pmu}                                                       p_\mu=P(\tilde{q_\mu}\geq \tilde{q_\mu}^{obs}|\text{signal-plus-background})=\int_{\tilde{q_\mu}^{obs}}^{\inf}f(\tilde{q_\mu}|\mu,\hat{\theta_\mu}^{obs})d\tilde{q_\mu}
+\end{equation}
 
-\subsection{Theoretical uncertainties}
+The above quantity corresponds to CL$_\text{s+b}$ and measures the incompatibilty of data with signal-plus-background hypothesis. This quantity alone is not adequate for hypothesis testing in situations when the signal is so small that both hypotheses are compatible with the observation and a downward fluctuation of the background can lead to an inference of signal.
+
+The second quantity we calculate is:
+\begin{equation}                                                                                                                          
+  \label{eq:pb}                                                     
+  1-p_b=P(\tilde{q_\mu}\geq \tilde{q_\mu}^{obs}|\text{background-only})=\int_{\tilde{q_\mu}^{obs}}^{\inf}f(\tilde{q_\mu}|0,\hat{\theta_0}^{obs})d\tilde{q_\mu}                                                                                                            
+\end{equation}
+This quantity corresponds to CL$_\text{b}$ and measures the incompatibilty of data with the background. The incompatibilty of the data with background-only hypothesis alone doesn't tell us that it is indeed compatible with the signal, and so is not considered a good test of the signal hypothesis.
+
+The ratio of the two quatities referred to as CL$_\text{s}$~\cite{cls1,cls2,cls3} helps deal with both situations above well, and is given by:
+\begin{equation}                                                                                                                          
+  \label{eq:cls}                                                                                                                           \text{CL}_\text{s}=\frac{p_\mu}{1-p_b}
+\end{equation}
+
+The 95\% CL is then arrived at by iterating over $\mu$ until we have CL$_\text{s}=0.05$. And the amount of signal or above, given by that $\mu$, denoted as $\mu^{95\%CL}$, is said to be excluded at 95\% CL. 
+
+\subsection{Median expected Limits}
+
+Upper exclusion limits calculated using toy datasets of background-only expectation, are called expected limits. A large set of background-only pseudo-data is generated, and CL$_\text{s}$ and $\mu^{95\%CL}$ is calculated for each of them. The median expected limit is calculated by integrating over this distribution until the 50\% quantile is reached. The $\pm 1\sigma$ bands are calculated similary by integrating the distribution to the appropiate quantiles are reached. The calculation of median expected limits does not involve using the observed data and hence can be calculated when the analyses is blinded to prevent experimenter's bias (as mentioned in Section~\ref{evt_sel_intro}). This can be use to maximize the sensitivity of the search, as described in Sections~\ref{h125_cb_sel} and ~\ref{H125_cb_sel}. A more stringent(lower) median limit corresponds to a more sensitive search.  
+
+
+\subsection{Quantifying an excess of events}
 \label{theo_uncert}
+In case an excess of data over background is observed, it is necessary to make sure beyond a reasonable doubt that the excess is not merely a fluctuation. This is quantified using the background-only p-value, which is the probability for the background to fluctuate and give an excess of events as large or larger than that observed. The same test statistic as equation~\ref{eq:proflik} is used with the signal stength set to 0 to correspond to the background-only hypothesis:
+
+\begin{equation}
+\label{eq:proflik_b}
+  \tilde{q_0}=-2\text{ ln}\frac{\mathcal{L}(\text{data}|0,\hat{\theta_0})}{\mathcal{L}(\text{data}|\hat{\mu},\hat{\theta})},\text{   with  } 0\leq\hat{\mu} 
+\end{equation}
+The constraint on $\hat\mu$ being greater than 0 is required so that a deficit of events in observed data is not interpreted in the same manner as we would an excess. In other words a departure from the background hypothesis in the form of deficit of events is not considered in favour of the signal hypothesis. Following the same procedure as calculation of observed limits ~\ref{exc_cal} and generating pseudo-data, the distribution $f(\tilde{q_0}|0,\hat{\theta_{0}}^{obs})$ is constructed. The p-value is then given by:
+
+\begin{equation}                                                                                                                          
+  \label{eq:p0}                                                     
+  p_0=P(\tilde{q_0}\geq \tilde{q_0}^{obs})=\int_{\tilde{q_0}^{obs}}^{\inf}f(\tilde{q_0}|0,\hat{\theta_0}^{obs})d\tilde{q_0}               \end{equation}
+
+The p-value can be converted to significance $\mathcal{Z}_0$, which is an equivalent way of quantifying an excess and is related to the p-value by the following:
+
+\begin{equation}                                                                                                                          
+  \label{eq:sig}                                                                                                                           p_0=\int_{\mathcal{Z}_0}^{\inf}\frac{1}{\sqrt{2\pi}}exp(-x^2/2)dx
+\end{equation}
+
+Broadly, the signficance corresponds to how far into the tail of the distribution (i.e., away from the most probable value), assuming background hypothesis, the test statistic value corresponding to the observed data lies. The farther it is, the less likely it is to have been a fluctuation. The conventional standard in high energy physics to be able to claim observation of a process is a significane of $5\sigma$, which corresponds to a p-value of $2.8\times 10^{-7}$.
+
 
 \subsection{Experminetal uncertainties}
 \label{exp_uncert}
