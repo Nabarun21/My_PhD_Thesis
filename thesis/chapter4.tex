@@ -66,13 +66,53 @@ The third step in track generation track fitting. In this step the collection of
 Proton-proton interaction vertices are reconstructed by selecting tracks that are produced promptly in the primary interaction region. The selected tracks are then clustered on the basis of their z-coordinatesat their point of closest approach to the centre of the beam spot, which represents a 3-D profile of the region where the LHC beams collide inside the CMS detector. The exact positions of the vertices are then obtained from these clustered candidates, by using a fitting procedure, called the adaptive vertex fitter~\cite{vertex_fitting}. The vertex which has the largest sum of squared transverse momenta of tracks originating from it is considered the primary interaction vertex. 
 
 
+\subsection{Muon Reconstruction}
+\label{mu_recon}
+Hits in the muon system (described in section ~\ref{muon_system}) and tracks (muons being charged particles leave tracks in the tracker) from the tracker are used to reconstruct muons~\cite{muon_recon2018}. When muons traverse a muon subdetector (such as RPC, CSC or DT) in the muon system, they ionize the gas in the chambers. The electrical signals produced on the wires and strips as a consequence of the ionization are read out by electronics systems that associate these ``hits'' with well-defined locations in the detector. Various algorithms depending on the subdetector technology are used to reconstruct these hits. Reconstruction of muon tracks using these hits first proceeds independently of track reconstruction in the tracker. These tracks, called \textit{standalone-muon tracks}, are built using these reconstructed hits from the muon system using a Kalman filter. Muon tracks are also built inside-out by propagating tracker tracks (described in previous section) with transverse momentum above 0.5 GeV to the muon system and matching them to (straight-line) segments of hits in DT or CSC. If a match is found, the tracker track qualifies as a \textit{tracker muon track}. Muon tracks are also  built outside-in  by matching standalone-muon tracks with tracker tracks, and combining information from both using a Kalman filter fit. These are called \textit{global muon tracks}. While the global muon reconstruction is especially efficient for muons leaving hits in several muon stations. The \textit{tracker muon} reconstruction is more efficient for low \pt muon candidates but it can also cause fake muon tracks due to hadronic particles which \textit{punch-through} to the innermost muon stations. The \textit{global muon} reconstruction has  high efficiency for muons penetrating through more than one muon station, and reduces the muon misidentification rate compared to tracker muons. Combining both \textit{tracker muon tracks} and \textit{global muon tracks}, the efficiency for reconstructing a muon is as high as 99\%. The particle-flow algorithm applies a set of requirements, based on various quality parameters from muon reconstruction as well as information from other sub-detectors, to  reconstructed candidates. The PF muon candidates used in the analyses described in this thesis were required to satisfy the following set of criterion to be identified as a muon:
+
+\begin{itemize}
+\item Must be a global muon or a tracker muon.
+\item Must have at least one hit in the pixel subdetector of the tracker
+\item $\chi^2$ of the compatibility between the position of the standalone and trackers tracks $<12$
+\item Transverse impact parameter of the associated tracker track with respect to the primary vertex $d_{xy}< 2 mm$
+\item Longitudinal distance of the (origin of )associated tracker track with respect to the primary vertex $d_z <5 mm$
+\item constraints on muon segment matching compatibility between tracker and muon system dependent on if it is a global muon
+\end{itemize}
+The efficiency of the above selection for muon identification is illustrated using a plot from a study performed by the CMS Muon Physics Object group in Fig.~\ref{fig:muoneff}. As can be seen from the plots, there is a difference in the efficiencies in data and MC simulation. This is corrected using a set a of scaled factors applied as a function $\eta$ and \pt to adjust the efficiency in simulation to get it to match the efficiency in data.  
+
+\begin{figure*}[!htpb]\centering
+ \includegraphics[width=0.47\textwidth]{plots_and_figures/chapter4/muoneffveta.png}
+ \includegraphics[width=0.49\textwidth]{plots_and_figures/chapter4/muoneffvpt1.png} \\
+ \includegraphics[width=0.49\textwidth]{plots_and_figures/chapter4/muoneffvpt2.png}
+ \includegraphics[width=0.49\textwidth]{plots_and_figures/chapter4/muoneffvpt3.png} 
+\caption{Efficiency of muon identification as a function of $\eta$ and \pt, for data (black) and simulation (blue)}
+ \label{fig:muoneff}
+\end{figure*}  
+  
+The momentum of muons is measured by CMS using one among different possible ways involving the tracker and muon system~\cite{muon_recon2012} and then using the PF algorithm to refine this informmation that exploits information from the full event.
+
+
+
+
+
 
 
 
 \subsection{Electron Reconstruction}
 \label{e_recon}
-\subsection{Muon Reconstruction}
-\label{mu_recon}
+Besides muons, electron form the other primary part of the final state of the decay we are searching for in this thesis. Electrons, in the CMS, are reconsrtucted using clusters of energy formed in the ECAl (described in section ~\ref{Ecal}) and associating them with tracks from the tracker. The reconstruction of electrons is made complicated by the fact that they can radiate a significant amount of energy before reaching the ECAL. This happens due to the radiation of bremsstrahlung photons caused by the ineraction of electrons with atoms as they pass through the tracker. This loss can range from 33\% to as high as 86\% depending on $\eta$ (as a consequence of the fact that the amount of detector material the electron has to cross is $eta$ dependent). In order to measure the an electron's energy,  clustering algorithms thus need to take into the energy from these bremsstrahlung photon showers together with the deposit made in the ECAL by the electron. The energy from these radiated photons spreads primarily in the $\phi$ owing to bend in electron trajectory in the magnetic field of CMS. The spread in the $\eta$ direction is relatively small. These facts are used by the clustering algorithms.
+
+The algorithm used to cluster the electron energy deposit in the ECAL barrel is called the \textit{hybrid} algorithm. It exploits the above property of the electron shower shape, and uses the geometry of the ECAL to form clusters thare are narrow in $\eta$ direction but wide in $\phi$ direction. Starting with a (seed) crystal containing the largest amount of energy deposited in a considered region above a certain threshold (1 GeV), it adds 5x1 arrays of crystals in $\eta\times\phi$ around the seed crystals in both directions of $\phi$ if the energy contained in the arrays is above another predefined threshold (0.1 GeV). Contiguous arrays are merged into clusters, and finally a electron supercluster is formed from all such strip clusters which have at least one seed strip with energy above another predefined threshold (0.35 GeV). The position of the supercluster is computed as the energy-weighted mean of the cluster positions, whereas its energy is simply taken as the sum of the energy of all its constituent clusters. In the ECAL endcap a different clustering algorithm is used owing to different geometrical arrangement of the crystals. This algorithm called the \textit{5x5} algorithm starts similarly with a seed crystal with maximum energy in a local region, and satisfying the minimum energy requirement of 0.18 GeV. Clusters of 5x5 crystals are progressively grouped around the seed crystal, making a supercluster, if the total cluster energy exceeds 1 GeV and the are withing $\pm 0.7$  and $\pm 0.3$ respectively in $\eta$ and $\phi$ around the seed crystal. The positon and energy of the supercluster is calculates in the same manner as the barrel. The energy from the preshower is also added into the supercluster, using it's most energetic cluster and it's maximum distance in $\phi$ to other clusters and extrapolating it to the preshower plane to define the spread in the preshower. The thresholds used in the above algorithms were optimized using simulation and adjusted durting data taking periods.
+
+The standard track reconstuction (section ~\ref{track_recon}) is not efficient for electrons. This is because the standard approach is compromised by the large radiative losses in the tracker leading to a poor estimation of track parameters. Therefore a dedicated tracking procedure is used for  electron candidated that used infromation not only from the tracker but also the ECAL. Just like the standard track reconstruction procedure the first step in electron track reconstruction is seeding. This is done in two ways and the results are then combined. In the first method, superclusters from ECAL are used. As mentioned earlier, owing to strong magnetic field, the bremsstrahlung photons emitted by the electrons deposit energy in the ECAL at $\η$ values similar to that of the electron, but at diffrent $\phi$ leading to a spread. The ECAL supercluster algorithms described above recover this energy. The position and  energy of these reconstructed superclusters along with the assumption that the electrons originated close to the center of the beam spot can be used to constrain the trajectory of the electron through the tracker. Hits in the first layers of the trackers compatible with these trajectories are deemed electron seeds. In the second method of seeding, the "opposite" is done. Tracks constructed by the regular tracking algorithm are extrapolated to the ECAL and matched with a supercluster. The seeds corresponding to such matching tracks are retained as electron seeds. The seed collections from these two methods are merged leading to a increase in overall efficiency of the seeding procedure. These seeds are then used to intiate electron track finding.
+
+
+
+
+
+
+
+
 \subsection{Jet Reconstruction}
 \label{jet_recon}
 \subsection{MET, MT and Collinear Mass}
