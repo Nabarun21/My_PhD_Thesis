@@ -1,5 +1,6 @@
 \chapter{Experimental Setup}
 \label{chap:exper_setup}
+\epigraph{If it disagrees with experiment, it’s wrong. In that simple statement is the key to science. It doesn’t make any difference how beautiful your guess is, it doesn’t matter how smart you are who made the guess, or what his name is \ldots  If it disagrees with experiment, it’s wrong. That’s all there is to it.}{\textit{Richard Phillips Feynman}}
 In this chapter, we describe the experimental setup used to collect the data used for the searches. We first describe the collider which smashes protons together. Then we describe the detector used to collect the data from those proton-proton collisions.
 \section{The Large Hadron Collider}
 \label{sec:LHC}
@@ -143,6 +144,67 @@ The crystals of the ECAL are organized into a barrel and two endcaps, one on eac
 \label{fig:ecal_layout}
 \end{center}
 \end{figure*}
+
+I worked closely with the ECAL during the time spent at CERN. The next subsection briefly describes a project related to the ECAL that I worked on.
+
+\subsubsection{Mitigation of anomalous APD signals in the ECAL barrel}
+As mentioned in the last section, APDs are used as photodetectors to collect, amplify and convert light to electronic signals in the barrel section of the ECAL. The APDs use silicon as active element and have an active area of $5\times5\mathrm{mm}^2$. Each ECAL crystal has a pair of APDs. Figure~\ref{fig:apd} shows an ECAL APD mounted in a module. The APDs suffer from a problem which can be considered both strange and interesting in nature. Particles produced in the collisions (usually neutrons) can ocassionally strike the APDs directly and interact with the material, that cause large depsits through direct ionization of the silicon~\cite{petyt}. These deposits cause anomalous signals to be registered as coming from a real electron or photon that has scintillated the ECAL. These anomlaous signals are usually called 'spikes', and they can range from a few GeV to to a few hundred GeV in energy. When the collected data is being processed, these  depsoits must be eliminated with high accuracy and efficiency for subsequent analysis. This is called offline rejection, an algorithm called the swiss-cross algorithm along with timing information is used to get rid of these deposits with almost cent percent eficiency. However, offline rejection of spikes is not enough. Because spikes are produced at a rate proportional to number of collisions, at a high luminosity output collider like the LHC, spikes cause problems with triggering, as they 'eat up' the $\sim100\,$kHz bandwidth available at the first level of triggering (see section~\ref{trigger} for a description of the two-level CMS trigger system). Thus a majority of spikes need to be eliminated 'online', that is when the data is being collected live. Given that the hardware based first level of the CMS trigger (L1) has only 3.2\,$\mu$s to make a decision, spikes need to be identified and rejected fast in the firmware.     
+
+\begin{figure*}
+\begin{center}
+  \includegraphics[width=0.6\textwidth,keepaspectratio]{plots_and_figures/chapter3/apd.jpg}
+\caption{Two CMS ECAL Avalanche Photodiodes~\cite{apd}.}
+\label{fig:apd}
+\end{center}
+\end{figure*}
+
+Spikes masquerade well as true electromagnetic (EM) energy deposits. However, the defining charecteristic of spikes is that they deposit all their energy in a single ECAL crystal. In contrast, as mentioned in the last section, EM showers spread. The spread is even larger in the direction perpendicular to the magnetic field ($\phi$-direction). A well-centered EM shower deposits about $\sim80\%$ of its energy (E1) in the central crystal. However, the remaining $\sim20\%$ of its energy is spread in a neighboring crystal. Based on the above ideas, a discriminating variable is defined as $1-\frac{E4}{E1}$, where E4 is the energy deposited in the 4 nearest neighbors of the central crystal. This variable is named the 'Swiss-cross' variable. Figure~\ref{fig:swisscross} (left) shows how the Swiss-cross variable is defined. The distribution of this variable is shown Figure~\ref{fig:swisscross} (right), for data collected from pp collisions and Monte-Carlo simulated data contaning only EM energy deposits. A secondary peak at high Swiss-cross values can be clearly seen in only the pp collision data, and corresponds to spikes. Thus, this variable can be used to discriminate very well against spikes. In fact $99\%$ spikes can be rejected using this variable alone. This can be further improved by using other characteristics such as pulse shape and timing that separate spikes from EM deposits.
+
+
+\begin{figure*}
+\begin{center}
+  \includegraphics[width=0.9\textwidth,keepaspectratio]{plots_and_figures/chapter3/swisscross.png}
+\caption{Definiton of the Swiss-cross variable (left) and its distribution in pp collision data and simulated EM events~\cite{petyt}.}
+\label{fig:swisscross}
+\end{center}
+\end{figure*}
+
+Although the Swiss-cross algorithm described above is relatively simple, it still isn't possible to implement in online and run it on firmware under the 3.2\,$\mu$s od time that the L1 trigger has to make a decision. Therefore, a much simpler adaptation of the Swiss-cross algorithm was implemented. This algorithm exploits the fact that the EM showers spread in the $\phi$ direction due to the magnetic field. The smallest building block of an EM candidate, i.e. an electron or a photon, is a trigger tower (TT). A TT is a block of $5\times5$ crystals in the $\eta\times\phi$ direction. These TTs are send downstream by L1 trigger to the next triggering level (HLT, see section~\ref{trigger}). A base block associated with a TT is called a trigger primitive (TP). The aim of this algorithm is to thus reduce the proportion of TPs induced by spikes within a short amount of time available. For each of the 5 $1\times5$ strips lengthwise across the $phi$ direction in a TT, the number of crystals  having energy above a certain threshold is counted. If in any of this strips more than 1 channel is above the threshold (hopefully owing to EM shower spread), a logic flag called the sFGVB (strip Fine Grain Veto Bit) is set to 1. Otherwise, it is set to 0. A TP with sFGVB 0 is considered to have been induced by a spike and is discarded. Not all TPs are subject to the above rule. Only TP with total energy above a certain threshold are eliminated. Otherwise, we would end up discarded many real low energy EM candidates thereby reducing the overall efficiency of detecting such candidates. The sFGVB threshold mentioned earlier is $\eta$ dependent, and its average value corresponded to 350\,MeV in run I while TP-killing threshold was set at 12\,GeV. Using this algorithm, the proportion of spike-induced TPs were kept low in run I ($\sim15\%$).      
+
+
+\begin{figure*}
+\begin{center}
+  \includegraphics[width=0.95\textwidth,keepaspectratio]{plots_and_figures/chapter3/sfgvb.png}
+\caption{Illustration of the Strip Fine Grain Veto Bit~\cite{sfgvb}.}
+\label{fig:swisscross}
+\end{center}
+\end{figure*}
+
+LHC conditions have become more an more challenging since the start of Run II in 2015. The instantaneous luminosity has risen continuously, and the bunch crossing has been reduced to 25\,ns. This means CMS can now collect a lot more data at a faster rate which is great. However, this also means the ECAL APDs get hit with much more spikes compared to RUN I. In data collected in 2015 and early 2016, this effect was observed as expected. This is shown in Figure~\ref{fig:spike_fraction}. The proportion of spike induced TPs had increased progressively, and the online spike rejection algorithm needed to be tuned to the newer LHC conditions.    
+
+
+\begin{figure*}
+\begin{center}
+  \includegraphics[width=0.95\textwidth,keepaspectratio]{plots_and_figures/chapter3/spike_fraction.png}
+\caption{Spectrum of energy for all TPs (black line) and TPs induced by spikes (blue line with yellow fill) for pp collison runs from 2015 (left) and 2016 (right). Percentage of spike induced contamination above different energy thresholds are also noted.}
+\label{fig:spike_fraction}
+\end{center}
+\end{figure*}
+
+There are several things that need to be considered when tuning the above algorithm. The spike contamination should go down, however this should not come at the cost of reduction in efficiency of detection real EM candidates. Further, the overarching L1 triggering rate should not increase, and if possible decrease. Therefore, in order to tune the algorithm one needs to adjust both thresholds: sFGVB threshold and the TP-killing threshold. Simply increasing the sFGVB threshold would eliminate more spikes, but it would also end of rejecting some real EM candidates. Thus, in order to keep the efficiency of EM candidate detection good, we need to increase the TP-killing threshold as well. An array of working points (possible values for the thresholds) were studied. They ranged from 14 to 22\,GeV for the TP-killing threshold, and $\sim400$to$\sim900\,$MeV for the sFGVB threshold. For each of these working points, the residual contamination from spikes was calculated. The efficiency for detection of EM candidates was also calculated. Figure~\ref{fig:spikeroc} shows the purity (1-proportion of spike contaminated TPS), i.e. proportion of real EM candidates  plotted v/s EM candidate efficiency, for various working points. The ideal working point would corresponding to the point closest to the top right corner of the plot. However, we would also need to consider the third factor mentioned above, i.e. the triggering rate. Increasing the TP-killing threshold increases the rate at which all triggers below that threshold fire (slect events). However, each increasing TP-killing threshold is accompanied by a higher sFGVB threshold which brings the rate of firing of all triggers above the TP-killing threshold down. The L1 rate for each of the working points being studied were also calculated. The optimal working point would thus have a higher rate decrease and a lower rate increase thus bringing the overall L1 triggering rate down, and keeping spike contamination low and EM candidae selction efficiency high.
+
+\begin{figure*}
+\begin{center}
+  \includegraphics[width=0.95\textwidth,keepaspectratio]{plots_and_figures/chapter3/spikeroc.png}
+\caption{Purity (proportion of TPs which are not spike induced) v/s efficiency of selection of EM candidates. }
+\label{fig:spikeroc}
+\end{center}
+\end{figure*}
+
+Based on all the aforementioned factors, the new thresholds chosen were $~500\,$MeV for sFGVB and 16\,GeV for TP-killing. The tuned spike rejection algorithm was able to reduce the contamination rate down to acceptable levels, and reduce the overall L1 trigger rate from EM candidates.  
+
+%\subsubsection{ML-driven anomaly detection for the ECAL DQM}
+
 
 \subsection{Hadronic Calorimeter}
 \label{Hcal}
