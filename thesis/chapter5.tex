@@ -1,6 +1,7 @@
-\chapter{Event selection}
-\epigraph{It is, indeed an incredible fact that what the human mind, at its deepest and most profound, perceives as beautiful finds its realization in external nature.… What is intelligible is also beautiful.}{\textit{Subrahmanyan Chandrasekhar}}
+\chapter{Event Selection}
 \label{evt_sel}
+\epigraph{It is, indeed an incredible fact that what the human mind, at its deepest and most profound, perceives as beautiful finds its realization in external nature.… What is intelligible is also beautiful.}{\textit{Subrahmanyan Chandrasekhar}}
+\vskip 0.5in
 \section{Introduction}
 \label{evt_sel_intro}
 This chapter describes in detail the event selection criteria for the analyses, and how they were chosen. It starts by introducing the backgrounds that each of selection criterion is trying to reduce in order to get a higher ratio of number of signal events to background events, leading to a better sensitivity for the search. This is followed by the procedure for arriving at the best possible set of selection criterion. For the \hmue analysis, two methods of selection were developed. The first method developed involves placing requirements on several kinematic variables, and then using the resulting distribution of \mcol as discriminant for a binned likelihood fit (see section ~\ref{stat_meth} for description of statistical procedures). We call this method \mcol fit method. The second method developed involves using a Boosted Decision Trees (BDT) discriminator  for classification of signal and background events. The output distribution of the BDT discriminator is then used to perform the fit. We call this method BDT method. The BDT method is found to have greater sensitivity, as discussed later in the chapter. However, the \mcol fit method is also presented as a complementary method and acts like a cross-check for the BDT method. For \Hmue analysis, only the \mcol fit method is developed. This is in part due to the difficulties foreseen in training a BDT with much fewer events available in \Hmue analysis, and in part since this is the very first time the \Hmue search is being performed, a simpler analysis was felt to be adequate.  
@@ -14,10 +15,6 @@ Both analyses were performed blinded~\cite{blind_analysis} in the signal region.
 The signature of the \hmue analysis final state consists of a muon that comes promptly from the Higgs and has a hard $\pt$ spectrum, along with a softer electron of opposite sign charge that comes from the tau lepton, and missing transverse momentum from the tau decay. It is interesting to note that the signature is similar to the $\text{h} \to \Pgt_{\Pgm}\Pgt_{\Pe}$ decay that is allowed by the SM and since been observed~\cite{CMS-PAS-HIG-16-043}, but with significant kinematic differences. In \hmue decay the $\Pgm$ comes directly from the Higgs resulting in its $\pt$ spectrum peaking and spreading out to much higher values. Also there are fewer neutrinos in \hmue, coming from the decay of the single $\Pgt$. The decay products of this highly boosted tau are closely aligned, leading to a narrow separation between the $\Pe$ and the $\ptvecmiss$ in the azimuthal plane. The same is not true in the $\text{h} \to \Pgt_{\Pgm}\Pgt_{\Pe}$ decays. These differences are illustrated pictorially in Fig.~\ref{fig:htt_v_lfv}.
 
 
-
-
-
-
 \begin{figure*}
 \begin{center}
 \includegraphics[width=0.8\textwidth,keepaspectratio]{plots_and_figures/chapter5/htt_v_lfv.pdf}
@@ -29,14 +26,14 @@ The signature of the \hmue analysis final state consists of a muon that comes pr
 The most dominant backgrounds consists of \ztt events coming from Drell-Yan production and \ttb production. In \ztt events, one $\Pgt$ can decay to an $\Pe$ and the other to a $\Pgm$. This background peaks at lower values of $M_{col}$ than the signal events but there is significant overlap with the signal spectrum. In \ttb production, each of the top quarks can decay into a bottom and a $\PW$ with the $\PW$ bosons then decaying to a $\Pe$ and $\Pgm$. The other backgrounds are smaller and include (in no particular order) electroweak diboson production ($\PW\PW$, $\PW\PZ$ and $\PZ\PZ$), h boson decays allowed by the SM ($\PH \to \Pgt\Pgt,\PW\PW$), $\PW\gamma^{(*)}+\text{jets}$ ,single top production, \wjets events, $Z\to\ell\ell$ $(\ell = \Pe, \Pgm)+\text{jets}$ and QCD multijet backgrounds. These backgrounds are described in more detail, along with there estimation and validation techniques in section~\ref{bg_val}.        
 
 
-\subsection{\hmue:Baseline selection and categorization}
+\subsection{\hmue: Baseline selection and categorization}
 \label{h125_presel_cat}
 A baseline selection is defined first in order to ensure that we have clean and well-defined events faithful to the final state signature of the signal process. An isolated and well-identified $\Pgm$ is thus required to be present along with a well-identified and isolated $\Pe$ of opposite sign charge. They are required to be separated by $\Delta R > 0.3$. The identification criterion applied for $\Pgm$ and $\Pe$ have been described in sections~\ref{mu_recon} and~\ref{e_recon}. Isolation criterion, as measured by $I_\text{rel}$ (described in ~\ref{tau_recon}), are required to have values $I_\text{rel}^{\Pe} < 0.15$ and $I_\text{rel}^{\Pgm} < 0.1$. The $\pt$ of these candidates are required to be above minimal thresholds required by trigger, identification and isolation requirement. Both candidates are also required to be within the fiducial region of the detector. The $\Pgm$ is required to have $\pt^{\Pgm} > 26$\GeV and $|\eta^{\Pgm}|<2.4$.The $\Pe$ is required to have $\pt^{\Pe} > 10$\GeV and $|\eta^{\Pe}|<2.3$. Only events with two or fewer jets are considered. All jets considered must have $\pt>30$\GeV, $|\eta| < 2.4 $ and satisfy the loose identification criterion described in section~\ref{jet_recon}. Events with one or more jets arising from a b-quark (b-tagged jets) are vetoed. Cleaning events with b-tagged jets reduce some contribution from backgrounds which give rise to b-quarks such as \ttb and single top. Also, as described in~\ref{jet_recon}, any event with one or more jets within $\Delta R < 0.4$ of either lepton candidates is also rejected. Further, an event is rejected if it has additional $\Pgm$ or $\Pe$, or any $\Pgt_{had}$ candidates. All the above baseline selection requirements have been summarized in Table~\ref{tab:h125_base_sel}. All the events were required to pass isolated muon triggers with a $\pt$ threshold of 24 \GeV. The trigger selection has been described in detail in section~\ref{trigger}. The distributions of the \mcol and several other kinematic variables after the baseline selection just described, are shown in Figs.~\ref{fig:h125_presel1} and ~\ref{fig:h125_presel2}. These distributions act as the starting point for development of stricter kinematic selections looking at the different shapes of signal and backgrounds distributions for different variables.     
 
 
-\begin{table*}[htpb]
+\begin{table}[htpb]
  \begin{center}
- \caption{Baseline selection criteria for \hmue analysis.}
+ \caption{Baseline selection criteria for \hmue analysis}
   \begin{tabular}{c|c|c} \hline
     Variable    &  $\Pgm$  & $\Pe$ \\ \hline
     $\pt $       & $>30$\GeV &  $>10$\GeV                                           \\
@@ -52,7 +49,7 @@ A baseline selection is defined first in order to ensure that we have clean and 
   \end{tabular}
   \label{tab:h125_base_sel}
   \end{center}
-\end{table*}
+\end{table}
 
 
 \begin{figure*}[!htpb]\centering
@@ -73,7 +70,7 @@ A baseline selection is defined first in order to ensure that we have clean and 
 \end{figure*}
 
 At this point the events are divided into several buckets, called categories. This is done on the basis of number of jets present in the event. In events with 2 jets the invariant mass of the di-jet system ($M_{jj}$) is also used for categorization. The topology of events containing different number of such jets can be different. For example, in events with one energetic jet the h produced can be boosted resulting in the azimuthal separation of the $\Pgm$ and $\Pe$ (that come from its decay) to be narrower than events with no jets. Each of this categories enhance the contribution of different h boson production mechanisms, and requiring different optimal selection criteria in each category  helps increase the sensitivity of the search. The categories in order of decreasing number of signal events are:
-\begin{itemize}%[itemsep=5pt]
+\begin{itemize}
 \item \textbf{0-jet category}: These are events that do not have any jet. This category enhances the gluon-gluon fusion (GGF) contribution.
 \item \textbf{1-jet category}: Events that have 1 jet are put in this category. This category enhances the GGF production with initial state radiation (ISR). Some VBF events where one jet has escaped detection can also enter this category.
 \item \textbf {2-jet GGF category}: This category contains events that have 2 jets with the additional requirement that $M_{jj}<550$\GeV. The dominant contribution comes from GGF production in association with two jets.
@@ -89,7 +86,7 @@ The aim of the optimization procedure is to maximize the sensitivity of the anal
 
 \begin{table}[htpb]
  \begin{center}
- \caption{Final selection criteria for \hmue \mcol fit analysis.}
+ \caption{Final selection criteria for \hmue \mcol fit analysis}
   \begin{tabular}{c|c|c|c|c} \hline
     Category     &  0-jet    & 1-jet & 2-jet GGF & 2-jet \\ \hline
     $\pt^{\Pgm}$ & $>30$\GeV &  --   & --        & --     \\
@@ -102,7 +99,7 @@ The aim of the optimization procedure is to maximize the sensitivity of the anal
   \label{tab:h125_sel_cuts}
   \end{center}
 \end{table}
-\subsection{\hmue: BDT method selction}
+\subsection{\hmue: BDT method selection}
 \label{h125_bdt_Sel}
 In the BDT method, a boosted decision trees (BDT) classifier is used to discriminate signal events from background events. A decision tree is a classifier which works by building a tree structure based on binary splits (as shown in Fig.~\ref{fig:dec_tree}). Starting from the root node of the tree (which contains all the events which we want to classify), a sequence of binary splits is made using input variables provided to the classifier. At each split, the variable which provides best purity of split or equivalently, in our case the best separation of signal and background events, is used. The same variable can thus be used for splitting several nodes and the splitting is continued until a desired some stopping criterion such as depth of the tree, purity of leaf nodes , minimum number of events in a leaf node etc. is reached. All events end up in one of the leaf nodes. If an event ends up in a leaf node in which signal events form the majority fraction, it is classified as a signal event. Otherwise, it is classified as a background event. Boosting is a class of ensemble machine learning techniques which help in enhancing performance of weak classifiers by sequentially building classifiers using reweighted (boosted) versions of the training data and then taking a weighted majority vote of the sequence of classifiers thus produced. Boosting also stabilizes the response of the classifiers with respect to fluctuations in the training data. In other words it helps avoid overfitting to the training data. When the boosting technique is a applied to produce an ensemble of decision trees, the resulting ensemble of classifiers is called a Boosted Decision Trees classifier.
 
@@ -111,14 +108,14 @@ In the BDT method, a boosted decision trees (BDT) classifier is used to discrimi
 \begin{figure*}
 \begin{center}
 \includegraphics[width=0.8\textwidth,keepaspectratio]{plots_and_figures/chapter5/decision_tree.png}
-\caption{Illustration of decision tree.~\cite{tmva_manual}}
+\caption{Illustration of decision tree~\cite{tmva_manual}.}
 \label{fig:dec_tree}
 \end{center}
 \end{figure*}
 
 
 The BDT is trained using events that satisfy the baseline selection criteria. Simulated GGF and VBF events weighted by their cross-section are used as signal events for training. For background, a mixture of \ttb and Drell-Yan events are used, also weighted by their respective cross-sections. The \ttb and Drell-Yan backgrounds are the most dominant backgrounds. The Drell-Yan background is the most dominant background in 0-jet and 1-jet category, while the \ttb background is the most dominant in both 2-jet categories. It also has many kinematic characteristics in common with diboson and single-top backgrounds. A suite of input variables is used in training of the BDT. They are as follows:
-\begin{itemize}[itemsep=1pt]
+\begin{itemize}
 \item Transverse mass between the $\Pgm$ and $\ptvecmiss$: $M_T(\Pgm)$.
 \item Transverse mass between the $\Pe$ and $\ptvecmiss$: $M_T(\Pe)$. 
 \item Azimuthal angle between the $\Pe$ and $\Pgm$: $\dphiemu$. 
@@ -157,7 +154,7 @@ The training was done with a 800 decision tree ensemble, each tree having a maxi
 \label{fig:BDT_response}
 \end{figure*}
 
-\section{ Heavy higgs:\Hmue analysis}
+\section{ Heavy higgs: \Hmue analysis}
 \subsection{\Hmue: Final state signature and backgrounds}
 \label{HH_evt_sel}
 
@@ -177,9 +174,9 @@ The most dominant backgrounds for \Hmue consists of events from  \ttb and electr
 \label{H_presel_cat}
 The baseline selection for \Hmue is similar to that of \hmue with the exception of higher $\pt$ thresholds. Just like \hmue, an isolated and well-identified $\Pgm$ is thus required to be present along with an well-identified and isolated $\Pe$ of opposite sign charge. They are required to be separated by $\Delta R > 0.3$. The identification and isolation criteria have been described in sections~\ref{mu_recon},~\ref{e_recon} and ~\ref{tau_recon}. All events are required to pass a single muon trigger with the threshold of 50\GeV. The trigger selection has been described in detail in section~\ref{trigger}. The $\Pgm$ is required to have $\pt^{\Pgm} > 53$\GeV and $|\eta^{\Pgm}|<2.4$. The $\Pe$ is required to have $\pt^{\Pe} > 10$\GeV and $|\eta^{\Pe}|<2.3$. Only events with zero or one jet are considered. Jets  must have $\pt>30$\GeV, $|\eta| < 2.4 $ and satisfy the loose identification criterion described in section~\ref{jet_recon} to be considered. As only GGF production mode is considered for the \Hmue analysis, events with more than one jet make negligent contribution and are rejected. All other other criteria are same as the \hmue analysis. The entire set of baseline selection criteria for \Hmue has been summarized in table~\ref{tab:H125_base_sel}.
 
-\begin{table*}[htpb]
+\begin{table}[htpb]
  \begin{center}
- \caption{Baseline selection criteria for \Hmue analysis.}
+ \caption{Baseline selection criteria for \Hmue analysis}
   \begin{tabular}{c|c|c} \hline
     Variable    &  $\Pgm$  & $\Pe$ \\ \hline
     $\pt $       & $>53$\GeV &  $>10$\GeV                                           \\
@@ -195,7 +192,7 @@ The baseline selection for \Hmue is similar to that of \hmue with the exception 
   \end{tabular}
   \label{tab:H125_base_sel}
   \end{center}
-\end{table*}
+\end{table}
 
 The events are then divided into  categories, with motivations similar to the \hmue analysis (see section~\ref{h125_presel_cat}), on the basis of number of jets present in the event. The two categories for \Hmue are:
 \begin{itemize}%[itemsep=5pt]
@@ -226,7 +223,7 @@ The distributions of several kinematic variables after the baseline selection an
 \end{figure*}
 
 
-\subsection{\Hmue: mcol fit selection}
+\subsection{\Hmue: \mcol fit selection}
 \label{H125_cb_sel}
  Just like the \mcol fit method in \hmue, the selection is performed by placing kinematic cuts on several variables to enhance the signal-to-background ratio. The variables considered are: $\dphiemu$, $\dphiemet$, $\dphimumet$, $M_T(\Pgm)$ and $M_T(\Pe)$. In addition, the $\pt$ of the $\Pgm$ and $\Pe$ are also considered. Since we are looking for a decay in an extended mass range (200-900 GeV) in \Hmue, and not in a particular region like the \hmue analysis, the potential effect of background  mimicking the signal, in particular due to higher $\pt$ thresholds of the leptons, is not apparent. The motivations for using these variables remain much the same like the \hmue analysis owing to similarities in topology. They are motivated by the facts that the only source of MET is the $\Pgt$, and the  $\Pgt$ being lighter than the H, its visible products are closely aligned, and the $\pt$ spectrum of the prompt lepton ($\Pgm$) is hard.
 
@@ -243,20 +240,22 @@ The procedure for optimization of the thresholds of for these variables is exact
      \subfigure[High mass range 0 jet $\Delta\phi(\Pe, \ptvecmiss)$]{ \includegraphics[width=0.375\textwidth]{plots_and_figures/chapter5/limit_opt/450_0jet_dphiemet.pdf}}\\
      \subfigure[High mass range 1 jet $\Delta\phi(\Pe, \ptvecmiss)$]{ \includegraphics[width=0.375\textwidth]{plots_and_figures/chapter5/limit_opt/450_1jet_dphiemet.pdf}}
      \subfigure[High mass range 1 jet $\pt^{\Pe}$]{ \includegraphics[width=0.375\textwidth]{plots_and_figures/chapter5/limit_opt/450_1jet_ept.pdf}}\\
-     \caption{Examples of cut optimisation for the $\Hmue$ analysis}
+     \caption{Examples of cut optimisation for the $\Hmue$ analysis.}
      \label{fig:Hmue_limit_opt}
 \end{figure}
 
  \begin{table}[hbtp]
   \begin{center}
-  \caption{Final selection criteria in each category  of the $\Hmue$ analysis.}
-  \begin{tabular}{c|c|c}
+  \caption{Final selection criteria in each category  of the $\Hmue$ analysis}
+  \begin{tabular}{c|cc}
   \hline
   & Low mass range & High mass range\\ \hline
   \multirow{3}{*}{0-jet}
   & $\pt^{\Pgm}>60$\GeV, $\pt^{\Pe}>10$\GeV &  $\pt^{\Pgm}>150$\GeV, $\pt^{\Pe}>10$\GeV\\
   & $\Delta\phi(\Pe, \ptvecmiss)<0.7$ & $\Delta\phi(\Pe, \ptvecmiss)<0.3$ \\
-  & $\Delta\phi(\Pe, \Pgm)>2.2$ & $\Delta\phi(\Pe, \Pgm)>2.2$ \\ \hline
+  & $\Delta\phi(\Pe, \Pgm)>2.2$ & $\Delta\phi(\Pe, \Pgm)>2.2$ \\
+    [\cmsTabSkip]\\
+    [\cmsTabSkip]
   \multirow{3}{*}{1-jet}
   & $\pt^{\Pgm}>60$\GeV, $\pt^{\Pe}>10$\GeV & $\pt^{\Pgm}>150$\GeV, $\pt^{\Pe}>10$\GeV\\
   & $\Delta\phi(\Pe, \ptvecmiss)<0.7$ & $\Delta\phi(\Pe, \ptvecmiss)<0.3$\\

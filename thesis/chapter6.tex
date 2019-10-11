@@ -1,13 +1,14 @@
 \chapter{Background Estimation and Validation}
-\epigraph{Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less.}{\textit{Marie Skłodowska Curie}}
 \label{bg_val}
+\epigraph{Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less.}{\textit{Marie Sklodowska Curie}}
+\vskip 0.5in
 \section{Introduction}
 This chapter describes the techniques used for estimation of the backgrounds in the analyses. Each background is estimated individually. For large backgrounds, the estimation is validated using regions enriched in those backgrounds.
 
 \section{h125: \hmue backgrounds}
 \label{h125_bg_val}
 
-\subsection{\ztt}
+\subsection{\ztt background}
 \label{h125_ztt}
 The \ztt background is the dominant background in 0-jet and 1-jet categories of the analysis. It is an irreducible background and arises when one $\Pgt$ coming from the $\PZ$ boson decay further decays into a $\Pgm$ and the other decays into a $\Pe$. This background is estimated from simulated monte-carlo events. In a $\PZ \to \ell \ell$ events from Drell-Yan production including \ztt, the $m_{\ell\ell}$ and $\PZ_{\pt}$ distributions are found to be different in data and simulation. In order to correct for this, a set of reweighting factors is calculated using a dedicated control region enriched in $\PZ \to \Pgm\Pgm$ events. The set of reweighting factors are applied as a function of generator-level $m_{\ell\ell}$ and $\PZ_{\pt}$ in the signal region of the analysis. A more detailed study of this effect and calculation of the reweighting factors can be found in the following references~\cite{CMS-PAS-HIG-16-043}.
 
@@ -26,7 +27,7 @@ To validate this estimation, we look at agreement between observed data and simu
 \end{figure*}
 
 
-\subsection{\ttb}
+\subsection{\ttb background}
 \label{h125_ttb}
 Tops decay into $\PW$ bosons and a b-quark more than 90\% of the time. The $\PW$ boson can decay leptonically into a $\Pgm$ and $\Pe$ making it a background for the analysis. The b-tagging veto applied at the baseline selection level is able to somewhat surpress this background. However it still forms a large fraction of the background for the analysis. In fact, it is the largest background in both 2-jet categories. It is also large in the 1-jet category. We estimate the \ttb background using simulation. The background estimation is validated in two separate control regions enriched in \ttb. The first control region is formed requiring the baseline selection but with a inverted b-tagging veto. In other words, at least 1 b-tagged jet is required to be present in the event. The distributions of BDT response (top) and \mcol (bottom) in this region are shown in Fig.~\ref{fig:tt_cr} for categories where the \ttb background is large. The second control region is constructed using kinematic selection criteria. In particular, in addition to the baseline selection criteria with the b-tag veto removed, we require $M_T(\Pe)$ (see Fig.~\ref{fig:h125_presel2} top left) to be greater than 50\GeV. The distributions of BDT response (top) and \mcol (bottom) in this second control region are shown in Fig.~\ref{fig:tt_cr_cutbased}. Given that the uncertainty bands in these control region plots only contain uncertainties on normalization (and not shape-based uncertainties, as discussed in section~\ref{sig_ext}, and included in the max likelihood fit used to extract results), the data over background estimation  ratio is reasonable in these regions. Further, a normalization uncertainty of 10\% is applied on the \ttb estimation in the signal region based on these control regions.
 
