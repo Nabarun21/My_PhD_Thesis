@@ -57,6 +57,7 @@ The third step in track generation track fitting. In this step the collection of
 
 \begin{figure*}
 \begin{center}
+\captionsetup{width=0.9\textwidth,justification=centering}
 \includegraphics[width=0.9\textwidth,keepaspectratio]{plots_and_figures/chapter4/trackrecon.png}
 \caption{Track reconstruction efficencies for single isolated muons as a function of $\eta$ and \pt~\cite{track_reconstruction}.}
 \label{fig:trackrecon}
@@ -81,11 +82,13 @@ Hits in the muon system (described in section~\ref{muon_system}) and tracks (muo
 \end{itemize}
 The efficiency of the above selection for muon identification is illustrated using a plot from a study performed by the CMS Muon Physics Object group in Fig.~\ref{fig:muoneff}. As can be seen from the plots, there is a difference in the efficiencies in data and MC simulation. This is corrected using a set a of scale-factors applied as a function $\eta$ and $\pt$ to adjust the efficiency in simulation to get it to match the efficiency in data.  
 
-\begin{figure*}[!htpb]\centering
- \includegraphics[width=0.47\textwidth]{plots_and_figures/chapter4/muoneffveta.png}
- \includegraphics[width=0.49\textwidth]{plots_and_figures/chapter4/muoneffvpt1.png} \\
- \includegraphics[width=0.49\textwidth]{plots_and_figures/chapter4/muoneffvpt2.png}
- \includegraphics[width=0.49\textwidth]{plots_and_figures/chapter4/muoneffvpt3.png} 
+\begin{figure*}[!htpb]
+\centering
+\captionsetup{width=0.98\textwidth,justification=centering}
+\includegraphics[width=0.47\textwidth]{plots_and_figures/chapter4/muoneffveta.png}
+\includegraphics[width=0.49\textwidth]{plots_and_figures/chapter4/muoneffvpt1.png} \\
+\includegraphics[width=0.49\textwidth]{plots_and_figures/chapter4/muoneffvpt2.png}
+\includegraphics[width=0.49\textwidth]{plots_and_figures/chapter4/muoneffvpt3.png} 
 \caption{Efficiency of muon identification as a function of $\eta$ and $\pt$, for data (black) and simulation (blue)~\cite{muon_pog}}
  \label{fig:muoneff}
 \end{figure*}  
@@ -109,8 +112,10 @@ Further, several quality requirements are used on reconstructed electron candida
 These requirements are based on variables that fall into three broad categories: variables that compare measurements from ECAL and the tracker, variables that come only from ECAL (such as transverse shape of electromagnetic showers, ratio of energy fractions deposited in the HCAL to the ECAL ) and purely tracking based variables (such as information from GSF track, difference between the information from GSF and KF-fitted tracks). These variables can be used in two ways: a cut-based method that uses the variables above directly to apply threshold requirements, or a multivariate (MVA) technique that uses all these variables as an input to a Boosted Decision Trees classifier to obtain a combined discriminator variable on which a threshold is applied. The BDT based method has much better performance as is illustrated in Fig~\ref{fig:elec_eff}. Two separate BDTs are trained depending on whether electron is required to pass a HLT triggering requirement or it is not. The trigger selection used in the analyses described in this thesis uses trigger based on muons. The BDT based identification criterion for non-triggering electrons is thus used in this analysis. The threshold corresponding to the working point used in this analysis has an efficiency of approximately 80\%. The difference in efficiencies  of electron identification based on the above criteria in data and MC simulation is corrected using a set a of scaled factors, applied as a function $\eta$ and $\pt$. This adjusts the efficiency in simulation to get it to match the efficiency in data.  
    
 
-\begin{figure*}[!htpb]\centering
- \includegraphics[width=0.95\textwidth]{plots_and_figures/chapter4/elec_eff.png}
+\begin{figure*}[!htpb]
+\centering
+\captionsetup{width=0.95\textwidth,justification=centering}
+\includegraphics[width=0.95\textwidth]{plots_and_figures/chapter4/elec_eff.png}
 \caption{Performance of the BDT-based electron identification algorithm (red dots) compared with results from several working points of cut-based selection for electron candidates in the ECAL barrel (left), and endcaps (right)~\cite{e_recon}.}
  \label{fig:elec_eff}
 \end{figure*}
@@ -152,7 +157,6 @@ The isolation of an object is the measure of the absence of other objects in its
 I_\text{rel}^{\ell} = \left( \sum  \pt^\text{charged} + \text{max}\left[ 0, \sum \pt^\text{neutral}
                                  +  \sum \pt^{\gamma} - \pt^\text{PU}\left(\ell\right)  \right] \right) /  \pt^{\ell},
 \end{equation}
-
 where $\pt^\text{charged}$, $\pt^\text{neutral}$, and $\pt^{\gamma}$  indicate the $\pt$ of a charged particle, a neutral particle, and a photon within the cone, respectively. The contribution to isolation sum from charged particles in the cone coming from pileup is excluded by requiring the track origins be consistent with the primary vertex associated with the hard interaction. However, the same procedure cannot be adopted for neutral particles in the cone coming from pileup. This contribution, $\pt^\text{PU}\left(\ell\right)$, is estimated using a jet area method for electrons~\cite{isolation_1,isolation_2}, and simply as half of the scalar $\pt$ sum of charged particles from pileup inside the cone for muons. The definition ensures that the total contribution to the isolation cone sum for neutral particles is always greater than or equal to 0. 
 
 The relative isolation is an useful variable in this analysis as prompt objects are usually isolated. More importantly, for an analyses with electrons and muons in the final state such as this, a tightened isolation requirement helps to reject those events where a jet is misidentified as either one of these leptons. Strict isolation requirements are thus used in the event selection in this analysis as described in sections ~\ref{h125_presel_cat} and ~\ref{H_presel_cat}.    
@@ -164,7 +168,9 @@ The relative isolation is an useful variable in this analysis as prompt objects 
 \label{col_mass}
 An important variable of interest in this analysis is the collinear mass, $\mcol$. As mentioned in later chapters, $\mcol$ is used as the signal variable in the $\Hmue$ analysis and in the $\mcol$ fit method of the $\hmue$ analysis. The visible mass of the muon-electron system, $\mvis$ is not a very good estimator of the Higgs boson mass. This is because the neutrinos from the tau decay do not interact with the detector and the energy they carry is ``lost''. $\mcol$ provides a better estimate of the Higgs mass by approximating the neutrino momenta using the collinear approximation~\cite{Ellis:1987xu}. The primary idea is the following. The mass of the Higgs being much larger than that of the tau lepton causes the tau lepton to become highly boosted. Consequently, the decay products of the tau lepton, i.e. the electron, the tau neutrino and the electron neutrino, are produced in a highly collimated region around the direction of the tau lepton momentum. The momenta of the neutrinos ($\pt^{\nu,\,\text{est}}$) can thus be approximated from the projection of \ptvecmiss in the direction of momenta of the visible tau decay product (electron), i.e. $\vec{\pt^{\Pe}}$. The visible fraction of the tau lepton momentum is then given as $x_{\Pgt}^\text{vis}={\pt^{\vec{\Pgt}^{\text{vis}}}}/{(\pt^{\vec{\Pgt}^\text{vis}}+\pt^{\nu,\,\text{est}})}$. Finally, $\mcol$ is given as $M_{\text{col}}= M_{\text{vis}} / \sqrt{\smash[b]{x_{\Pgt}^\text{vis}}}$. A very simple illustration in Figure~\ref{fig:mcol_v_mvis} shows the superimposition  the $\mcol$ and $\mvis$ spectrums for a 300 GeV Higgs boson. Evidently, $\mcol$ is a better estimator of the mass and also has a sharper peak.
 
-\begin{figure*}[!htpb]\centering
+\begin{figure*}[!htpb]
+ \centering
+ \captionsetup{width=0.8\textwidth,justification=centering}
  \includegraphics[width=0.9\textwidth]{plots_and_figures/chapter4/mcol_v_mvis.pdf}
 \caption{\mcol and \mvis distributions for Higgs mass of 300 GeV.}
  \label{fig:mcol_v_mvis}

@@ -32,7 +32,7 @@ For a counting experiments such as ours, the above conditions approximately hold
 \begin{equation}
   \mathcal{L}(data|\mu)=\prod_{i=1}^{bins}\frac{(\mu\cdot s_i + b_i)^{n_i}}{n_{i}!}e^{-\mu\cdot s_i - b_i}
 \end{equation}
-,where $n_i$ is the number of events observed in the bin i of the distribution, and $s_i$ and $b_i$ are expected number of signal and background events in that bin respectively.
+where $n_i$ is the number of events observed in the bin i of the distribution, and $s_i$ and $b_i$ are expected number of signal and background events in that bin respectively.
 
 
 \subsection{Treatment of systematic uncertainties}
@@ -60,12 +60,11 @@ The CL$_\text{s}$ method~\cite{cls1,cls2,cls3} is used to set upper exclusion li
 \label{eq:proflik}
   \tilde{q_\mu}=-2\text{ ln}\frac{\mathcal{L}(\text{data}|\mu,\hat{\theta_\mu})}{\mathcal{L}(\text{data}|\hat{\mu},\hat{\theta})},\text{   with  } 0\leq \mu \leq \hat{\mu} 
 \end{equation}
-
-,where $\hat{\theta_\mu}$ refers to the conditional maximum likelihood estimators of $\theta$, i.e. the set of nuisances parameters that maximize the likelihood for a given signal strength $\mu$, while $\hat\mu$ and $\hat\theta$ refer to the global maximum likelihood estimators for $\mu$ and $\theta$. The lower constraint on $\hat{\mu}$ i.e., $\hat{\mu}\geq 0$ ensures that the signal rate cannot be negative, while the upper constraint that $\hat{\mu}$, which is the global maximum value, cannot be less than the value of $\mu$ under consideration is imposed to guarantee that upward fluctuations of data such that $\hat{\mu}\geq \mu$ are not considered as evidence against the signal hypothesis, i.e., a signal of strength $\mu$.
+where $\hat{\theta_\mu}$ refers to the conditional maximum likelihood estimators of $\theta$, i.e. the set of nuisances parameters that maximize the likelihood for a given signal strength $\mu$, while $\hat\mu$ and $\hat\theta$ refer to the global maximum likelihood estimators for $\mu$ and $\theta$. The lower constraint on $\hat{\mu}$ i.e., $\hat{\mu}\geq 0$ ensures that the signal rate cannot be negative, while the upper constraint that $\hat{\mu}$, which is the global maximum value, cannot be less than the value of $\mu$ under consideration is imposed to guarantee that upward fluctuations of data such that $\hat{\mu}\geq \mu$ are not considered as evidence against the signal hypothesis, i.e., a signal of strength $\mu$.
 
 Now, using equation~\ref{eq:proflik}, the observed value of the test statistic, $\tilde{q_\mu}^{obs}$, is calculated for the signal strength $\mu$. Also, maximum likelihood estimators for the nuisance parameters, for the background-only($\mu=0$) and signal-plus-background(current $\mu>0$ under consideration) hypotheses are calculated. They are denoted by $\hat{\theta_{0}}^{obs}$ and $\hat{\theta_\mu}^{obs}$ respectively, and are used to generate toy Monte Carlo pseudo-datasets. These pseudo datasets are used to construct  pdfs, using equation~\ref{eq:proflik}, of test statistics $f(\tilde{q_\mu}|0,\hat{\theta_{0}}^{obs})$ and $f(\tilde{q_\mu}|\mu,\hat{\theta_\mu}^{obs})$ by treating them as they were real data. Example of these distributions are shown in Fig.~\ref{fig:test_stat_dist}.
 \begin{figure*}[!htpb]\centering
-  \captionsetup{width=.87\textwidth}
+ \captionsetup{width=.87\textwidth,justification=centering}
  \includegraphics[width=0.85\textwidth]{plots_and_figures/chapter7/test_statistic_distri.png}
  \caption{Test statistic distributions for ensembles of pseudo-data generated for signal-plus-background (red) and background-only (blue) hypotheses~\cite{note2011}.}
  \label{fig:test_stat_dist}

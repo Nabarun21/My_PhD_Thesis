@@ -13,6 +13,7 @@ The injector chain that supplies protons to the LHC consists of four CERN accele
 
 \begin{figure*}
 \begin{center}
+\captionsetup{justification=centering}
 \includegraphics[width=0.8\textwidth,keepaspectratio]{plots_and_figures/chapter3/cern_acc_complex.png}
 \caption{Cern Accelerator Complex ~\cite{acc_complex}}
 \label{fig:cern_acc_comp}
@@ -27,14 +28,10 @@ Another important parameter for a collider like the LHC is the instantaneous lum
 \begin{equation}
   \frac{dN}{dt}=\sigma\mathscr{L}
 \end{equation}
-
-
 where $\sigma$ is the cross-section of the processes. The luminosity of the LHC can be also expressed in terms of only beam parameters as:
-
 \begin{equation}
   \mathscr{L}=\frac{N_{b}^2 n_{b} f_{rev} \gamma_{r}}{4 \pi \epsilon_{n}\beta^{*}} F
 \end{equation}
-
 where $N_{b}$ is number of protons in a bunch, $n_{b}$ is number of bunches per beam, $f_{rev}$ is the revolution frequency, $\gamma_{r}$ the relativistic gamma factor, $\epsilon_{n}$ the transverse beam emittance, $\beta^{*}$ the beta function at the collision point, and F is a reduction factor coming from the fact that the beams cross at an angle.
 
 
@@ -42,9 +39,10 @@ This luminosity integrated over time represents the total number of events colle
 
 
 \begin{figure*}
-\begin{center}
-  \includegraphics[width=0.4\textwidth,keepaspectratio]{plots_and_figures/chapter3/int_lumi_per_day_cumulative_pp_2015.png}
-  \includegraphics[width=0.4\textwidth,keepaspectratio]{plots_and_figures/chapter3/int_lumi_per_day_cumulative_pp_2016.png}
+  \begin{center}
+  \captionsetup{width=.95\textwidth,justification=centering}
+  \includegraphics[width=0.49\textwidth,keepaspectratio]{plots_and_figures/chapter3/int_lumi_per_day_cumulative_pp_2015.png}
+  \includegraphics[width=0.49\textwidth,keepaspectratio]{plots_and_figures/chapter3/int_lumi_per_day_cumulative_pp_2016.png}
 \caption{Evolution of integrated luminosity in 2015 and 2016 delivered by LHC (blue), and collected by CMS detector (orange)~\cite{cms_int_lumi_ref}.}
 \label{fig:cms_int_lumi}
 \end{center}
@@ -52,7 +50,8 @@ This luminosity integrated over time represents the total number of events colle
 
 In the longer term, it is planned to keep the LHC running, punctuated with several scheduled stops for upgrades and maintenance, at least until late 2030s. In this timeframe, it is anticipated to operate at increasingly higher luminosities over extended periods of time, helping collect unprecedented amounts of data. Figure~\ref{fig:lhc_schedule} shows an overview of the long term LHC schedule. 
 \begin{figure*}
-\begin{center}
+  \begin{center}
+  \captionsetup{justification=centering}
   \includegraphics[width=0.95\textwidth,keepaspectratio]{plots_and_figures/chapter3/lhc_schedule.png}
 \caption{Overview of the long term LHC schecdule~\cite{LHC_plan_ref}.}
 \label{fig:lhc_schedule}
@@ -67,7 +66,8 @@ The Compact Muon Solenoid~\cite{cms_exp_ref} is a general multipurpose particle 
 The backbone of the CMS is a superconducting solenoid that houses its tracking and calorimetry systems and provides an axial magnetic field of 3.8\,T. The inner-most layer is the silicon pixel and strip tracker that measures the trajectories of charged particles. Surrounding the tracker are the lead tungstate crystal electromagnetic calorimeter (ECAL) which measures the energy of electrons and photons, and the hadronic calorimeter (HCAL) which measures the energy of heavier particles (mesons, baryon, jets of such particles) that pass through the ECAL. The ECAL also contains a preshower detector for extra spatial precision. Outside the solenoid is the muon system which has gas-ionization detectors placed in the steel yoke of the magnet. This is the outermost component of CMS and measures the momenta of muons that traverse through it. A sophisticated two-level trigger system that helps filter out a small fraction of most interesting events among millions produced at the LHC also forms a vital part of the CMS. The powerful solenoid, sophisticated muon system and its compact design (given its complexity) give CMS its name. Figure~\ref{fig:cms_layered} shows a layered view of the detector. Figure~\ref{fig:cms_cross_sec} shows a transverse cross-sectional view along with specific particle interactions. The following sections describe the detector in further detail.   
 
 \begin{figure*}
-\begin{center}
+ \begin{center}
+  \captionsetup{justification=centering}
   \includegraphics[width=0.95\textwidth,keepaspectratio]{plots_and_figures/chapter3/cms_layered.png}
 \caption{Layered View of the CMS detector}
 \label{fig:cms_layered}
@@ -78,6 +78,7 @@ The backbone of the CMS is a superconducting solenoid that houses its tracking a
 
 \begin{figure*}
 \begin{center}
+  \captionsetup{width=.92\textwidth,justification=centering}
   \includegraphics[width=0.95\textwidth,keepaspectratio]{plots_and_figures/chapter3/cms_cross_sec.png}
 \caption{Transverse cross-sectional view of the CMS along with specific particle interactions~\cite{Sirunyan:2017ulk}.}
 \label{fig:cms_cross_sec}
@@ -97,7 +98,8 @@ The CMS detector has adopted a right-handed coordinate system, the origin of whi
 The Charged Particle Tracking system or the tracker measures, efficiently and precisely, the trajectories of charged particles passing through it~\cite{cms_exp_ref, pix_det, pix_det2}. It is cylindrical in shape with a length of 5.8\,m and diameter of 2.5\,m. The momentum of charged particles can be measured using these tracks with high precision. The tracker also helps in reconstruction of secondary vertices of long-lived particles. Given the tracker is innermost the layer of the CMS and the challenging LHC conditions, the tracker experiences high particle flux. Therefore, the material it is built of needs to be radiation hard. This makes silicon a good choice for detector material. The tracker also needs to be highly granular and have fast response in order to be able to efficiently and precisely measure the trajectories. However, it is also necessary to keep the amount of material of the tracker low to limit photon conversion, multiple scattering, bremsstrahlung and nuclear interactions. A compromise between these two aspects led to the current design of the tracker which consists of two subsystems. The inner layer consists of a detector made of 66 million silicon pixels. The pixels are 100\,$\mu$m$\times$150\,$\mu$m and arranged in the form of three barrel layers with radii of 4.3\,cm, 7.2\,cm and 11 cm respectively, and two endcap disks on each side of the barrel at 34.5\,cm and 46.5\,cm from the interaction point. Figure~\ref{fig:pix_det} shows illustrations of the CMS pixel system and that of a section showing a pixel element. Outside the region of the pixel detector, the density of tracks is low and the high granularity requirement can be somewhat relaxed. The outer subsystem of the tracker is thus made of strips of silicon. The strip detector consists of 10 barrel layers which are organized into 4 inner layers, called Tracker Inner Barrel (TIB) and 6 outer layers, called Tracker Outer Barrel (TOB). They range in radii from 25\,cm to 110\,cm. It also consists of 12 endcap disks on each side of the barrel which have radii up to 110\,cm, and are up to 280\,cm from the interaction point. They are organized on each side into 3 inner endcap disks, called Tracker Inner Disks (TID) and 9 outer disks, called Tracker End Cap (TEC). Figure~\ref{fig:tracker_layout} shows the layout of the tracker subsystems.    
 
 \begin{figure*}
-\begin{center}
+  \begin{center}
+  \captionsetup{width=.8\textwidth,justification=centering}
   \includegraphics[width=0.85\textwidth,keepaspectratio]{plots_and_figures/chapter3/pixeldet.jpg}
   \\
   \includegraphics[width=0.7\textwidth,keepaspectratio]{plots_and_figures/chapter3/pixelelem.pdf}
@@ -109,6 +111,7 @@ The Charged Particle Tracking system or the tracker measures, efficiently and pr
 
 \begin{figure*}
 \begin{center}
+  \captionsetup{justification=centering}
   \includegraphics[width=0.98\textwidth,keepaspectratio]{plots_and_figures/chapter3/trackerlayout.png}
 \caption{The CMS tracker layout~\cite{cms_exp_ref}.}
 \label{fig:tracker_layout}
@@ -123,6 +126,7 @@ The combination of the pixel and strip trackers give the CMS excellent track res
 The Electromagnetic Calorimeter or ECAL is the next layer of the CMS detector. It fits snugly in between the tracker and the HCAL (next section) and measures the energy of electrons and photons. Besides being a important for many other interesting analysis, one of the two final state particle in the searches described here is an electron. The ECAL is a homogenous calorimeter; the absorber and scintillator materials are one and the same. In other words, the entire volume of the calorimeter can potentially contribute towards a signal. This does away with the error introduced by sampling (which is needed in case of calorimeters which are not homogenous). The material chosen for the ECAL is Lead Tungstate ($\mathrm{PbWO}_4$), which despite being heavier (density=$8.3\,\mathrm{g/cm}^3$) than stainless steel (density$<8\,\mathrm{g/cm}^3$) is highly transparent in its crystalline form. The $\mathrm{PbWO}_4$ crystals (Figure~\ref{fig:ecal_crystal}) used in the ECAL are 23 (22)\,cm in length and $2.2\times2.2\,(2.86\times2.86)$\,cm in transverse size for the barrel (endcap)~\cite{ecal2}. These high density crystals have a short radiation length ($\mathrm{X}_{\circ}=0.85$\,cm) and a small Moli\'ere radius ($\mathrm{R}_{M}=2.19$\,cm). The radiation length of a material is the mean distance over which an incident electron loses all but 1/e of its energy, or 7/9 of the mean free path for pair production by a high energy photon. Electromagnetic showers are initiated in the ECAL when a high energy electron or photon enters its volume. An electron emits photons via bremsstrahlung radiation. These photons in turn pair produce electron-positron pairs which can in turn release more photons. This stops when the photon energy becomes lower than what is required for pair production (usually a few MeV). The ``depth'' of an electromagnetic shower scales logarithmically with energy and linearly with radiation length. Therefore, having a short radiation length is important. Since, the length of $\mathrm{PbWO}_4$ crystals (23\,cm) used in the ECAL is about 27 times the radiation length (0.85\,cm), they are able to contain full showers. Another important quantity, the Moli\'ere radius is the radius of the cylinder that contains 90\% of shower in the lateral direction. The small Moli\'ere radius ($2.19\,cm$) of $\mathrm{PbWO}_4$ thus helps the ECAL in delivering a high position resolution. Further, these crystals also produce light fast with 80\% of light being emitted in 25\,ns (LHC bunch crossing time). Because this light yield depends strongly on temperature ($-2\%/^{\circ}C\,\mathrm{at}\,18^{\circ}C$), it is necessary to maintain the ECAL at a constant temperature ($18\pm0.05^{\circ}C$). Also, despite being radiation hard, the crystals still suffer from reduction of transparency due to irradiation. Damage and recovery of the crystals is measured using laser light (Figure~\ref{fig:ecal_las_corr}), and this is corrected for periodically in measurements made by the ECAL operations team.     
 \begin{figure*}
 \begin{center}
+    \captionsetup{justification=centering}
   \includegraphics[width=0.7\textwidth,keepaspectratio]{plots_and_figures/chapter3/crystal.jpg}
 \caption{A $\mathrm{PbWO}_4$ ECAL crystal~\cite{ecal1}.}
 \label{fig:ecal_crystal}
@@ -130,7 +134,8 @@ The Electromagnetic Calorimeter or ECAL is the next layer of the CMS detector. I
 \end{figure*}
 
 \begin{figure*}
-\begin{center}
+  \begin{center}
+    \captionsetup{width=.8\textwidth,justification=centering}
   \includegraphics[width=0.8\textwidth,keepaspectratio]{plots_and_figures/chapter3/ecal_laser_corr.png}
 \caption{Relative response loss of ECAL due to radiation effects, as function of time in different $\eta$ regions as measured by the laser monitoring system~\cite{ecal2}.}
 \label{fig:ecal_las_corr}
@@ -140,7 +145,8 @@ The Electromagnetic Calorimeter or ECAL is the next layer of the CMS detector. I
 The crystals of the ECAL are organized into a barrel and two endcaps, one on each end. The layout is illustrated in Figure~\ref{fig:ecal_layout}. The barrel extends up to $|\eta|<1.479$ and is made of 61200 crystals, which are further organized into 36 supermodules of 1700 crystals each. The endcaps cover the region between  $1.65<|\eta|<3.0$, and are each made of two Dees with 3,662 crystals in each Dee. The 75,848 crystals together weigh 92 tonnes. The crystals are equipped with photodetectors which convert the light output to amplified electrical signals. In the barrel each crystal is equipped with two $5\times5\,\mathrm{mm}^2$ APDs (Avalanche Photo Diodes) which have a gain of 50. In the endcaps, the radiation is too high to use silicon photodiodes. Here, VPTs (Vacuum Phototriodes), with a gain of $\sim$10, are used instead. Each endcap crystal has a VPT glued to the end of it (as seen in Figure~\ref{fig:ecal_crystal}). The energy resolution of the ECAL can be parametrized as the sum of a stochastic term, a noise term and a constant term. The resolution depends on energy, and for the ECAL barrel this is can be approximated by: $(\frac{\sigma}{E})^2=(\frac{0.028}{\sqrt{E}})^2+(\frac{0.12}{E})+0.003^2$~\cite{ecal3}.
 
 \begin{figure*}
-\begin{center}
+  \begin{center}
+  \captionsetup{justification=centering}
   \includegraphics[width=0.9\textwidth,keepaspectratio]{plots_and_figures/chapter3/ecal_layout.png}
 \caption{CMS ECAL layout~\cite{ecal2}.}
 \label{fig:ecal_layout}
@@ -153,7 +159,8 @@ I worked closely with the ECAL during the time spent at CERN. The next subsectio
 As mentioned in the last section, APDs are used as photodetectors to collect, amplify and convert light to electronic signals in the barrel section of the ECAL. The APDs use silicon as active element and have an active area of $5\times5\mathrm{mm}^2$. Each ECAL crystal has a pair of APDs. Figure~\ref{fig:apd} shows an ECAL APD mounted in a module. The APDs suffer from a problem which can be considered both strange and interesting in nature. Particles produced in the collisions can occasionally strike the APDs directly and interact with the material, that cause large deposits through direct ionization of the silicon~\cite{petyt}. These deposits cause anomalous signals to be registered as coming from a real electron or photon that has scintillated the ECAL. These anomalous signals are usually called ``spikes'', and they can range from a few GeV to to a few hundred GeV in energy. When the collected data is being processed, these  deposits must be eliminated with high accuracy and efficiency for subsequent analysis. This is called offline rejection. An algorithm called the swiss-cross algorithm along with timing information is used to get rid of these deposits with almost cent percent efficiency. However, offline rejection of spikes is not enough. Because spikes are produced at a rate proportional to number of collisions, at a high luminosity output collider like the LHC, spikes cause problems with triggering, as they ``eat up'' the $\sim100\,$kHz bandwidth available at the first level of triggering (see section~\ref{trigger} for a description of the two-level CMS trigger system). Thus a majority of spikes need to be eliminated ``online'', that is when the data is being collected live. Given that the hardware-based first level of the CMS trigger (L1) has only 3.2\,$\mu$s to make a decision, spikes need to be identified and rejected fast in the firmware.     
 
 \begin{figure*}
-\begin{center}
+  \begin{center}
+    \captionsetup{width=.6\textwidth,justification=centering}
   \includegraphics[width=0.6\textwidth,keepaspectratio]{plots_and_figures/chapter3/apd.jpg}
 \caption{Two CMS ECAL Avalanche Photodiodes~\cite{apd}.}
 \label{fig:apd}
@@ -164,7 +171,8 @@ Spikes masquerade well as true electromagnetic (EM) energy deposits. However, th
 
 
 \begin{figure*}
-\begin{center}
+  \begin{center}
+    \captionsetup{width=.9\textwidth,justification=centering}
   \includegraphics[width=0.9\textwidth,keepaspectratio]{plots_and_figures/chapter3/swisscross.png}
 \caption{Definition of the Swiss-cross variable (left) and its distribution in pp collision data and simulated EM events~\cite{petyt}.}
 \label{fig:swisscross}
@@ -175,7 +183,8 @@ Although the Swiss-cross algorithm described above is relatively simple, it stil
 
 
 \begin{figure*}
-\begin{center}
+  \begin{center}
+  \captionsetup{justification=centering}
   \includegraphics[width=0.95\textwidth,keepaspectratio]{plots_and_figures/chapter3/sfgvb.png}
 \caption{Illustration of the Strip Fine Grain Veto Bit~\cite{sfgvb}.}
 \label{fig:swisscross}
@@ -186,7 +195,8 @@ LHC conditions have become more an more challenging since the start of Run II in
 
 
 \begin{figure*}
-\begin{center}
+  \begin{center}
+  \captionsetup{width=.94\textwidth,justification=centering}
   \includegraphics[width=0.95\textwidth,keepaspectratio]{plots_and_figures/chapter3/spike_fraction.png}
 \caption{Spectrum of energy for all TPs (black line) and TPs induced by spikes (blue line with yellow fill) for pp collision runs from 2015 (left) and 2016 (right). Percentage of spike induced contamination above different energy thresholds are also noted.}
 \label{fig:spike_fraction}
@@ -196,7 +206,8 @@ LHC conditions have become more an more challenging since the start of Run II in
 There are several things that need to be considered when tuning the above algorithm. The spike contamination should go down, however this should not come at the cost of reduction in efficiency of detection of real EM candidates. Further, the overarching L1 triggering rate should not increase, and if possible decrease. Therefore, in order to tune the algorithm one needs to adjust both thresholds: sFGVB threshold and the TP-killing threshold. Simply increasing the sFGVB threshold would eliminate more spikes, but it would also end up rejecting some real EM candidates. Thus, in order to keep the efficiency of EM candidate detection effective, we need to increase the TP-killing threshold as well. An array of working points (possible values for the thresholds) were studied. They ranged from 14 to 22\,GeV for the TP-killing threshold, and $\sim400$ to $\sim900\,$MeV for the sFGVB threshold. For each of these working points, the residual contamination from spikes was calculated. The efficiency for detection of EM candidates was also calculated. Figure~\ref{fig:spikeroc} shows the purity (1-proportion of spike contaminated TPs), i.e. proportion of real EM candidates, plotted v/s EM candidate efficiency, for various working points. The ideal working point would corresponding to the point closest to the top right corner of the plot. However, we would also need to consider the third factor mentioned above, i.e. the triggering rate. Increasing the TP-killing threshold increases the rate at which all triggers below that threshold fire (or select events). However, each increasing TP-killing threshold is accompanied by a higher sFGVB threshold which brings the rate of firing of all triggers above the TP-killing threshold down. The L1 rate for each of the working points being studied were also calculated. The optimal working point would thus have a higher rate decrease and a lower rate increase thus bringing the overall L1 triggering rate down, and keeping spike contamination low and EM candidate selection efficiency high.
 
 \begin{figure*}
-\begin{center}
+  \begin{center}
+  \captionsetup{width=0.94\textwidth,justification=centering}
   \includegraphics[width=0.95\textwidth,keepaspectratio]{plots_and_figures/chapter3/spikeroc.png}
 \caption{Purity (proportion of TPs which are not spike induced) v/s efficiency of selection of EM candidates. The pink point annotated (16,16) was chosen as the new threshold (see text).}
 \label{fig:spikeroc}
@@ -216,7 +227,8 @@ The Hadronic Calorimeter (HCAL) is designed to detect and measure the energy of 
 
 
 \begin{figure*}
-\begin{center}
+  \begin{center}
+    \captionsetup{justification=centering}
   \includegraphics[width=0.98\textwidth,keepaspectratio]{plots_and_figures/chapter3/hcal_layout.png}
 \caption{The CMS HCAL layout~\cite{cms_exp_ref}.}
 \label{fig:hcal_layout}
@@ -235,7 +247,8 @@ Muons are minimally interacting particles. They are capable of traveling through
 The muon system is comprised of three different types of gas detection systems, each serving their own purpose: 250 Drift Tubes (DT), 540 Cathode Strip Chambers (CSC) and 610 Resistive Plate Chambers (RPC). The layout of the CMS muon system is illustrated in Figure~\ref{fig:muon_system_layout}. In each of the three designs, a gas is ionized by the muons passing through the system. The electrons thus knocked off travel in an electric field towards the positive anode, and register electrical signals (hits). These hits can be reconstructed into tracks (similar to the tracker tracks, see~\ref{track_recon}) and can be potentially used to determine the momentum of the muon. However, in order to achieve a much higher muon reconstruction accuracy, information from both the tracker and the muon system is used. In particular, the muon system complements the tracker in better identification of muons, and also in improving the energy resolution of muons with high transverse momentum.  
 
 \begin{figure*}
-\begin{center}
+  \begin{center}
+    \captionsetup{justification=centering}
   \includegraphics[width=0.98\textwidth,keepaspectratio]{plots_and_figures/chapter3/muon_system_layout.jpg}
 \caption{The CMS Muon system layout~\cite{muon1}.}
 \label{fig:muon_system_layout}
@@ -245,7 +258,8 @@ The muon system is comprised of three different types of gas detection systems, 
 Like all other CMS subdetectors, the muon system is organized into a cylindrical barrel and endcaps. In the barrel region ($|\eta|<1.2)$) the particle rates are low, and magnetic field is uniform~\cite{cms_exp_ref}. This allows for the use of DT chambers as detection elements. Each drift tube (42mm by 13 mm, shown in Figure~\ref{fig:drift_tube}) contains a positively charged stretched wire within a gas volume. The gas (85\% Argon (Ar) and 15\% Carbon Dioxide ($\mathrm{CO}_{2}$)) is ionized by muons. Using the positions where the electrons hit on the anode wire and the distance away from the wire (calculated by multiplying the speed of an electron in the tube by the time taken), the coordinates for a muon's position can be calculated. The DT chambers give a position resolution of 100\,$\mu$m, and consist of several groups of alternating layers, with each layer containing up to 60 DTs.      
 
 \begin{figure*}
-\begin{center}
+  \begin{center}
+    \captionsetup{justification=centering}
   \includegraphics[width=0.75\textwidth,keepaspectratio]{plots_and_figures/chapter3/drift_tube.png}
 \caption{A Drift tube schematic~\cite{cms_exp_ref}.}
 \label{fig:drift_tube}
@@ -256,7 +270,8 @@ In the endcap region, particle intensities are high and the magnetic field is no
 
 
 \begin{figure*}
-\begin{center}
+  \begin{center}
+  \captionsetup{justification=centering}
   \includegraphics[width=0.6\textwidth,keepaspectratio]{plots_and_figures/chapter3/CSC.png}
 \caption{A Cathode Strip Chamber schematic~\cite{muon2}.}
 \label{fig:csc}
@@ -266,7 +281,8 @@ In the endcap region, particle intensities are high and the magnetic field is no
 The third component of the muon system are the RPCs which are used specifically for the purpose of triggering on muons, i.e. to make very fast decisions whether or not a muon (having a certain amount of energy or more) is present in the event. Because the response of CSCs and DTs are restricted by their relatively longer drift times, RPCs are placed in both the barrel and endcaps for the purpose of triggering. Just like DTs and CSCs, RPCs are also gas based detectors, consisting of positively-charged anode and negatively-charged cathode plates (made of high resistivity plastic) placed parallel to each other (Figure~\ref{fig:rpc}). The gas that separates these plates (~2.3\,m in length and $\sim$2\,m wide) is composed of 96.2\% Tetrafluoroethane ($\mathrm{C}_{2}\mathrm{H}_{2}\mathrm{F}_{4}$), 3.5\% isobutane ($\mathrm{C}_{2}\mathrm{H}_{10}$) and 0.3\% Sulfur Hexafluoride ($\mathrm{S}\mathrm{F}_{6}$). The fast timing response (1\,ns) of RPCs is achieved by keeping the plates separated by a small consistent distance of about 2\,mm. An avalanche of electrons is produced  when a muon passes through, travels towards the anode plate and is picked up by external metallic strips as a pattern of hits. This gives a quick measure of muon momentum and helps in making fast trigger decisions. Given the bunch crossing time is 25ns, the 1ns timing of RPCs makes them suitable for quickly identifying a muon associated with a particular bunch crossing.      
 
 \begin{figure*}
-\begin{center}
+  \begin{center}
+    \captionsetup{justification=centering}
   \includegraphics[width=0.6\textwidth,keepaspectratio]{plots_and_figures/chapter3/RPC.jpg}
 \caption{A resistive plate chamber schematic~\cite{muon2}.}
 \label{fig:rpc}
@@ -295,6 +311,7 @@ Everything that is deemed fit to record by the L1 trigger is received by the HLT
 For the analyses, only a subset of pp collision data collected by CMS are used. This is chosen by requiring that those events pass (satisfy) a certain trigger depending on the final state signature of the analysis. In the both the analyses, the final state consists of a high $\pt$ muon that comes directly from the Higgs accompanied by a relatively low $\pt$ electron from the tau lepton decay (see sections~\ref{h125_signature} and~\ref{HH_evt_sel}). In $\hmue$ analysis, the data used is composed of events that satisfy a trigger requiring an isolated muon (see section~\ref{isolation}) having a $\pt$ of at least 24\,GeV to be present in the event. In $\Hmue$ analysis, the Higgs Bosons are heavier and $\pt$ requirement is increased to 50\,GeV and there is no isolation requirement on the muon. The same trigger requirement is also required to be passed by simulated samples used in the analysis. The efficiency of the trigger in selecting pp collision events is different to that of its efficiency in selecting simulated samples. This is corrected by using scale factors (depending on $\pt$ and $\eta$) to match the efficiency in simulation to that of the data. The efficiencies were calculated by the CMS Muon Physics Object Group via tag-and-probe methods~\cite{muon_recon2018} using $Z\rightarrow\Pgm\Pgm$ events. Briefly, the tag-and-probe method works in the following way. One of the muons (called the tag) is required to pass strict selection criterion, while the other (called the probe) is required to pass more relaxed criterion. Given the invariant mass of the $\Pgm-\Pgm$ system is required to within a narrow window of the Z mass, the probe muon is also very likely to be a real muon. The percentage of probe muons that pass the criterion we are testing for (identification, isolation, trigger etc.) gives the efficiency. The efficiency plots are shown in Figure~\ref{fig:muon_trigger}.
 
 \begin{figure*}[!htpb]\centering
+ \captionsetup{width=0.9\textwidth,justification=centering}
  \includegraphics[width=0.9\textwidth,trim=0 -15pt 0 0,clip]{plots_and_figures/chapter3/muontrig1.png}\\
  \includegraphics[width=0.9\textwidth]{plots_and_figures/chapter3/muontrig2.png} 
 \caption{Efficiency of trigger used in the $\hmue$ analysis (top) and $\Hmue$ analysis (bottom), as a function of $\pt$ (left) and $\eta$ (right), for data (black) and simulation (red)~\cite{muon_pog}.}

@@ -16,7 +16,8 @@ The signature of the \hmue analysis final state consists of a muon that comes pr
 
 
 \begin{figure*}
-\begin{center}
+  \begin{center}
+\captionsetup{width=0.8\textwidth,justification=centering}
 \includegraphics[width=0.8\textwidth,keepaspectratio]{plots_and_figures/chapter5/htt_v_lfv.pdf}
 \caption{Illustration of the differences in $\pt^{\Pgm}$ and $\dphiemet$ spectrums in $\hmue$ and $\text{h} \to \Pgt_{\Pgm}\Pgt_{\Pe}$ processes.}
 \label{fig:htt_v_lfv}
@@ -53,6 +54,7 @@ A baseline selection is defined first in order to ensure that we have clean and 
 
 
 \begin{figure*}[!htpb]\centering
+  \captionsetup{width=.96\textwidth,justification=centering}
  \includegraphics[width=0.49\textwidth]{plots_and_figures/chapter5/preselection/Figure_002-a.pdf}
  \includegraphics[width=0.49\textwidth]{plots_and_figures/chapter5/preselection/Figure_002-b.pdf} \\
  \includegraphics[width=0.49\textwidth]{plots_and_figures/chapter5/preselection/Figure_002-c.pdf}
@@ -61,6 +63,7 @@ A baseline selection is defined first in order to ensure that we have clean and 
  \label{fig:h125_presel1}
 \end{figure*}
 \begin{figure*}[!htpb]\centering
+  \captionsetup{width=.96\textwidth,justification=centering}
  \includegraphics[width=0.49\textwidth]{plots_and_figures/chapter5/preselection/Figure_002-e.pdf}
  \includegraphics[width=0.49\textwidth]{plots_and_figures/chapter5/preselection/Figure_002-f.pdf} \\
  \includegraphics[width=0.49\textwidth]{plots_and_figures/chapter5/preselection/Figure_002-g.pdf}
@@ -106,7 +109,8 @@ In the BDT method, a boosted decision trees (BDT) classifier is used to discrimi
 %A detailed overview of how decision trees and boosting works, and the chosen value of parameters used in training the BDTs for this analysis is given in appendix~\ref{chap_BDT}.
 
 \begin{figure*}
-\begin{center}
+  \begin{center}
+    \captionsetup{justification=centering}
 \includegraphics[width=0.8\textwidth,keepaspectratio]{plots_and_figures/chapter5/decision_tree.png}
 \caption{Illustration of decision tree~\cite{tmva_manual}.}
 \label{fig:dec_tree}
@@ -127,30 +131,33 @@ The BDT is trained using events that satisfy the baseline selection criteria. Si
 \end{itemize}
 The distributions of these variables normalized to the total number of events in the input sample to the BDT is shown in Fig.~\ref{fig:bdt_inp_var}. The correlations between these variables in signal and background events are shown in Fig.~\ref{fig:bdt_corr_mat}.
 \begin{figure*}
-\begin{center}
+  \begin{center}
+    \captionsetup{width=.9\textwidth,justification=centering}
 \includegraphics[width=0.9\textwidth]{plots_and_figures/chapter5/variables_id_c1.pdf}\\
 \includegraphics[width=0.8\textwidth]{plots_and_figures/chapter5/variables_id_c2.png}\\
-\end{center}
 \caption{ Normalized distributions of the input variables for BDT method. The signal (blue) is composed of a weighted mixture of GGF and VBF events, whereas the background (red) is made of $t\bar{t}$ and Drell-Yan events. All events were required to satisfy the baseline selection criteria.}
+\end{center}
 \label{fig:bdt_inp_var}
 \end{figure*}
 
 \begin{figure*}[htpb]
-\begin{center}
+  \begin{center}
+    \captionsetup{width=.95\textwidth,justification=centering}
 \includegraphics[width=0.48\textwidth]{plots_and_figures/chapter5/CorrelationMatrixB.pdf}
 \includegraphics[width=0.48\textwidth]{plots_and_figures/chapter5/CorrelationMatrixS.pdf}\\
-\end{center}
 \caption{ Correlations between input variables for signal events (right) and background events (left).}
+\end{center}
 \label{fig:bdt_corr_mat}
 \end{figure*}
 
 The training was done with a 850 decision tree ensemble, each tree having a maximum depth of 4. The gini-index criterion was used for splitting the data at each node. Further, AdaBoost (adaptive boosting) method was used for boosting. A training to testing split of 70:30 split was used. Fig.~\ref{fig:BDT_response} shows the distribution of the BDT response for training and testing samples. The training and testing distributions for both signal and background events match well, suggesting that there is no overtraining. The distribution of BDT response is used in max-likelihood fit to extract results, as discussed in section~\ref{sig_ext}.  
 
 \begin{figure*}[htpb]
-\begin{center}
-\includegraphics[width=0.48\textwidth]{plots_and_figures/chapter5/overtrain_BDT.pdf}
-\end{center}
+  \begin{center}
+    \captionsetup{width=.65\textwidth,justification=centering}
+\includegraphics[width=0.8\textwidth]{plots_and_figures/chapter5/overtrain_BDT.pdf}
 \caption{Distribution of BDT response for training (dots) and test(fill) distributions for both signal(blue) and background(red) events.}
+\end{center}
 \label{fig:BDT_response}
 \end{figure*}
 
@@ -162,8 +169,9 @@ The signature of the \Hmue analysis final state is very similar to that of \hmue
 
 
 \begin{figure*}[htbp]
-     \centering
-     \includegraphics[width=0.5\textwidth]{plots_and_figures/chapter5/HM_signals_only_colmass.pdf}\\
+  \centering
+  \captionsetup{width=.65\textwidth,justification=centering}
+     \includegraphics[width=0.7\textwidth]{plots_and_figures/chapter5/HM_signals_only_colmass.pdf}\\
      \caption{Illustration of simulated signal mass peaks for \Hmue analysis for different H boson masses.}
      \label{fig:sig_peaks}
 \end{figure*}
@@ -203,7 +211,8 @@ The events are then divided into  categories, with motivations similar to the \h
 The distributions of several kinematic variables after the baseline selection and categorization are shown in Figs.~\ref{fig:Hmutaue_presel1} and ~\ref{fig:Hmutaue_presel2}.
 
 \begin{figure*}[htbp]
-     \centering
+  \centering
+  \captionsetup{width=.95\textwidth,justification=centering}
      \includegraphics[width=0.48\textwidth]{plots_and_figures/chapter5/preselection_HM/log_mutaue_0jet_presel_mPt.pdf}
      \includegraphics[width=0.48\textwidth]{plots_and_figures/chapter5/preselection_HM/log_mutaue_0jet_presel_ePt.pdf}\\
      \includegraphics[width=0.48\textwidth]{plots_and_figures/chapter5/preselection_HM/mutaue_0jet_presel_dphiemu.pdf}
@@ -213,7 +222,8 @@ The distributions of several kinematic variables after the baseline selection an
 \end{figure*}
 
 \begin{figure*}[htbp]
-     \centering
+  \centering
+  \captionsetup{width=.95\textwidth,justification=centering}
      \includegraphics[width=0.48\textwidth]{plots_and_figures/chapter5/preselection_HM/log_mutaue_1jet_presel_mPt.pdf}
      \includegraphics[width=0.48\textwidth]{plots_and_figures/chapter5/preselection_HM/log_mutaue_1jet_presel_ePt.pdf}\\
      \includegraphics[width=0.48\textwidth]{plots_and_figures/chapter5/preselection_HM/mutaue_1jet_presel_dphiemu.pdf}
@@ -231,7 +241,8 @@ The procedure for optimization of the thresholds of for these variables is exact
 
 
  \begin{figure}[htbp]
-     \centering
+   \centering
+   \captionsetup{justification=centering}   
      \subfigure[Low mass range 0 jet $\Delta\phi(\Pe, \ptvecmiss)$]{ \includegraphics[width=0.375\textwidth]{plots_and_figures/chapter5/limit_opt/200_0jet_dphiemet.pdf}}
      \subfigure[Low mass range 1 jet $\Delta\phi(\Pe, \ptvecmiss)$]{ \includegraphics[width=0.375\textwidth]{plots_and_figures/chapter5/limit_opt/200_1jet_dphiemet.pdf}}\\
      \subfigure[Low mass range 0 jet $\Delta\phi(\Pe, \Pgm)$]{ \includegraphics[width=0.375\textwidth]{plots_and_figures/chapter5/limit_opt/200_0jet_dphiemu.pdf}}
